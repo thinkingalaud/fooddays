@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+
+  "name": "Food Days",
+  "description": "This extension has a new tab page for when it's a food day in the US",
+  "version": "1.0",
+
+  "permissions": [
+    "https://www.googleapis.com/*",
+    "https://en.wikipedia.org/"
+  ],
+
+  "background": {
+    "persistent": true,
+    "scripts": ["background.js"]
+  },
+
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  }
+}
