@@ -51,7 +51,6 @@ function refresh(date, forward) {
           infoElements = addInfo(document.getElementById(element_id));
           infoElements[1].innerHTML = "There is nothing happening today!";
         } else {
-          // TODO: handle multiple days in result like February 9 or July 4
           document.getElementById(element_id).getElementsByClassName("info-title")[0].innerHTML = result['date'];
 
           // TODO: days with 3 food days still doesn't work
