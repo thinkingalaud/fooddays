@@ -3,7 +3,21 @@ function newWeekviewElement(id) {
 }
 
 function newDisplayElement(id) {
-    return '<div id="info' + id + '" class="info-display"> <div class="info-title"></div> <div class="info-img"></div> <div class="info-days"></div> </div>'
+  return '<div id="info' + id + '" class="info-display"> <div class="info-title"></div> <div class="info-imgs"></div> <div class="info-days"></div> </div>'
+}
+
+function addInfo(element) {
+  img = document.createElement('div');
+  img.className = 'info-img';
+  subelement = element.getElementsByClassName('info-imgs')[0];
+  subelement.appendChild(img);
+
+  day = document.createElement('div');
+  day.className = 'info-day';
+  subelement = element.getElementsByClassName('info-days')[0];
+  subelement.appendChild(day);
+
+  return [img, day]
 }
 
 function refresh(date, forward) {
@@ -33,12 +47,19 @@ function refresh(date, forward) {
         document.getElementById(weekview_id).innerText = window.WEEKDAYS[result['dow']];
         if (result['days'] == null) {
           document.getElementById(element_id).getElementsByClassName("info-title")[0].innerHTML = result['date'];
-          document.getElementById(element_id).getElementsByClassName("info-days")[0].innerHTML = "There is nothing happening today!";
+
+          infoElements = addInfo(document.getElementById(element_id));
+          infoElements[1].innerHTML = "There is nothing happening today!";
         } else {
           // TODO: handle multiple days in result like February 9 or July 4
           document.getElementById(element_id).getElementsByClassName("info-title")[0].innerHTML = result['date'];
-          document.getElementById(element_id).getElementsByClassName("info-days")[0].innerHTML = result['days'][0];
-          document.getElementById(element_id).getElementsByClassName("info-img")[0].style.backgroundImage = "url('" + result['img'][0] + "')";
+
+          // TODO: days with 3 food days still doesn't work
+          for (var j = 0; j < result['days'].length; j++) {
+            infoElements = addInfo(document.getElementById(element_id));
+            infoElements[0].style.backgroundImage = "url('" + result['img'][j] + "')";
+            infoElements[1].innerHTML = result['days'][j];
+          }
         }
       }
     }
@@ -75,7 +96,7 @@ $(document).ready(function() {
   refresh(document.currentDate, true);
 
   // Reset current date so that when we call goto and start in the middle, currentDate gets set to the correct date
-  document.currentDate.setDate((new Date()).getDate() - (window.totalElements / 2 >> 0));
+  document.currentDate.setDate(document.currentDate.getDate() - (window.totalElements / 2 >> 0));
 
   $('#info').slick('slickGoTo', (window.totalElements / 2 >> 0));
 
