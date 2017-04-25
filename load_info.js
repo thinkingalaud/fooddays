@@ -1,7 +1,3 @@
-function mod(n, m) {
-  return ((n % m) + m) % m;
-}
-
 function newWeekviewElement(id) {
   return '<div id="weekview' + id + '" class="weekday-bubble"></div>'
 }
@@ -12,21 +8,28 @@ function newDisplayElement(id) {
 
 function refresh(date, forward) {
   var window = chrome.extension.getBackgroundPage();
-  window.currentDate = date;
+  document.currentDate = date;
   window.get_info(date, function(results) {
     for (var i = 0; i < results.length; i++) {
       var result = results[i];
       var element_id = 'info' + result['raw_date'];
       var weekview_id = 'weekview' + result['raw_date'];
-      console.log(element_id);
-      console.log(result);
-      found = document.getElementById(element_id);
-      if (found) {
-        console.log('Found' + element_id);
-      } else {
-        $('#weekview').slick('slickAdd', newWeekviewElement(result['raw_date']));
-        $('#info').slick('slickAdd', newDisplayElement(result['raw_date']));
+      var found = document.getElementById(element_id);
 
+      if (found) {
+        // console.log('Found ' + element_id);
+      } else {
+        // Add new slides
+        console.log('Adding ' + result['raw_date']);
+        // If we insert at the beginning all slides get shifted to the right but the current slide doesn't change
+        if (!forward) {
+          $('#weekview')[0].slick.currentSlide += 1;
+          $('#info')[0].slick.currentSlide += 1;
+        }
+        $('#weekview').slick('slickAdd', newWeekviewElement(result['raw_date']), !forward);
+        $('#info').slick('slickAdd', newDisplayElement(result['raw_date']), !forward);
+
+        // Populate all the info
         document.getElementById(weekview_id).innerText = window.WEEKDAYS[result['dow']];
         if (result['days'] == null) {
           document.getElementById(element_id).getElementsByClassName("info-title")[0].innerHTML = result['date'];
@@ -39,6 +42,7 @@ function refresh(date, forward) {
         }
       }
     }
+    // TODO: delete elements that are not found in the results to reduce cruft
   });
 }
 
@@ -58,23 +62,33 @@ $(document).ready(function() {
     nextArrow: '<svg class="slick-next slick-arrow"><line class="arrow" x1="0%" y1="0%" x2="100%" y2="50%"/><line class="arrow" x1="100%" y1="50%" x2="0%" y2="100%"/></svg>'
   })
   $('#info').slick({
-    initialSlide: (window.totalElements / 2 >> 0),
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
     fade: true,
     asNavFor: '#weekview'
   });
+   
+  document.currentDate = new Date();
+  document.prevSlide = 0;
+  // Initialize actual slides based on today's date
+  refresh(document.currentDate, true);
+
+  // Reset current date so that when we call goto and start in the middle, currentDate gets set to the correct date
+  document.currentDate.setDate((new Date()).getDate() - (window.totalElements / 2 >> 0));
+
+  $('#info').slick('slickGoTo', (window.totalElements / 2 >> 0));
 
   $('#weekview').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
-    var diff = nextSlide - currentSlide;
-    var date = new Date(window.currentDate.getTime());
-    date.setDate(window.currentDate.getDate() + diff);
-    refresh(date, nextSlide > currentSlide);
+    // afterChange doesn't have access to the slide before
+    document.prevSlide = Number(currentSlide);
   });
-   
-  window.currentDate = new Date(2017, 3, 19);
-  refresh(window.currentDate, true);
-  $('#weekview').slick('slickGoTo', (window.totalElements / 2 >> 0));
+  $('#weekview').on('afterChange', function(event, slick, currentSlide) {
+    var diff = currentSlide - document.prevSlide;
+    var date = new Date(document.currentDate.getTime());
+    date.setDate(document.currentDate.getDate() + diff);
+    refresh(date, currentSlide > document.prevSlide);
+  });
+
 });
 
