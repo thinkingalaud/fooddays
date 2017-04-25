@@ -9,9 +9,10 @@ function get_info(today, callback) {
   console.log(today);
   data = [];
   for (var i = (-(totalElements/2) >> 0); i < ((totalElements/2) >> 0); i++) {
-    day = new Date();
+    day = new Date(today.getTime());
     day.setDate(today.getDate() + i);
     day_str = MONTHS[day.getMonth()] + ' ' + day.getDate();
+    raw_date = day.getFullYear() + '-' + day.getMonth() + '-' + day.getDate();
 
     if (day_str in cache) {
       days = cache[day_str];
@@ -22,6 +23,7 @@ function get_info(today, callback) {
       }
       d = {};
       d['date'] = day_str;
+      d['raw_date'] = raw_date;
       d['dow'] = day.getDay();
       d['days'] = days;
       d['img'] = imgs;
@@ -30,6 +32,7 @@ function get_info(today, callback) {
       // TODO: handle dates like "Day after Thanksgiving, Fourth Tuesday, etc"
       d = {};
       d['date'] = day_str;
+      d['raw_date'] = raw_date;
       d['dow'] = day.getDay();
       d['days'] = null;
       data.push(d);
