@@ -29,14 +29,14 @@
 }
 
 .info-day {
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: 4%;
+  margin-right: 4%;
   font-size: x-large;
   background: rgb(239, 239, 239);
   background: rgba(239, 239, 239, 0.9);
   border-radius: 90px;
   position: relative;
-  top: -215px;
+  top: -225px;
   width: 250px;
   padding: 25px;
   word-wrap: break-word;
@@ -57,7 +57,7 @@
 }
 
 .slick-slider {
-  margin: auto 250px auto 250px;
+  margin: auto 75px auto 75px;
 }
 
 .arrow {

@@ -58,7 +58,6 @@ function refresh(date, forward) {
         } else {
           document.getElementById(element_id).getElementsByClassName("info-title")[0].innerHTML = result['date'];
 
-          // TODO: days with 3 food days still doesn't work
           for (var j = 0; j < result['days'].length; j++) {
             infoElements = addInfo(document.getElementById(element_id));
             infoElements[0].style.backgroundImage = "url('" + result['img'][j] + "')";
