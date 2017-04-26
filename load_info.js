@@ -23,7 +23,7 @@ function addInfo(element) {
 function refresh(date, forward) {
   var window = chrome.extension.getBackgroundPage();
   document.currentDate = date;
-  window.get_info(date, function(results) {
+  window.getInfo(date, function(results) {
     // Moving backwards in time means that we should be inserting new elements from the right to ensure the correct order
     if (!forward) {
       results.reverse();
@@ -50,7 +50,7 @@ function refresh(date, forward) {
 
         // Populate all the info
         document.getElementById(weekview_id).innerText = window.WEEKDAYS[result['dow']];
-        if (result['days'] == null) {
+        if (result['days'].length == 0) {
           document.getElementById(element_id).getElementsByClassName("info-title")[0].innerHTML = result['date'];
 
           infoElements = addInfo(document.getElementById(element_id));
@@ -60,7 +60,7 @@ function refresh(date, forward) {
 
           for (var j = 0; j < result['days'].length; j++) {
             infoElements = addInfo(document.getElementById(element_id));
-            infoElements[0].style.backgroundImage = "url('" + result['img'][j] + "')";
+            infoElements[0].style.backgroundImage = "url('" + result['imgs'][j] + "')";
             infoElements[1].innerHTML = result['days'][j];
           }
         }
