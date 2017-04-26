@@ -24,6 +24,11 @@ function refresh(date, forward) {
   var window = chrome.extension.getBackgroundPage();
   document.currentDate = date;
   window.get_info(date, function(results) {
+    // Moving backwards in time means that we should be inserting new elements from the right to ensure the correct order
+    if (!forward) {
+      results.reverse();
+    }
+
     for (var i = 0; i < results.length; i++) {
       var result = results[i];
       var element_id = 'info' + result['raw_date'];
@@ -35,7 +40,7 @@ function refresh(date, forward) {
       } else {
         // Add new slides
         console.log('Adding ' + result['raw_date']);
-        // If we insert at the beginning all slides get shifted to the right but the current slide doesn't change
+        // If we insert at the beginning all slides get shifted to the right but we need to make sure the current slide doesn't change
         if (!forward) {
           $('#weekview')[0].slick.currentSlide += 1;
           $('#info')[0].slick.currentSlide += 1;
