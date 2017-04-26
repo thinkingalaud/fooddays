@@ -5,11 +5,6 @@
   "description": "This extension has a new tab page for when it's a food day in the US",
   "version": "1.0",
 
-  "permissions": [
-    "https://www.googleapis.com/*",
-    "https://en.wikipedia.org/"
-  ],
-
   "background": {
     "persistent": true,
     "scripts": ["background.js"]
