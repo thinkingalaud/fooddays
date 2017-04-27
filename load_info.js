@@ -1,3 +1,15 @@
+// Google Analytics code
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-98193595-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = 'https://ssl.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+
 function newWeekviewElement(id) {
   return '<div id="weekview' + id + '" class="weekday-bubble"></div>'
 }
@@ -80,7 +92,7 @@ $(document).ready(function() {
     centerPadding: '60px',
     slidesToShow: 3,
     respondTo: 'slider',
-    swipeToSlide: true,
+    swipe: false,
     focusOnSelect: true,
     prevArrow: '<svg class="slick-prev slick-arrow"><line class="arrow" x1="100%" y1="0%" x2="0%" y2="50%"/><line class="arrow" x1="0%" y1="50%" x2="100%" y2="100%"/></svg>',
     nextArrow: '<svg class="slick-next slick-arrow"><line class="arrow" x1="0%" y1="0%" x2="100%" y2="50%"/><line class="arrow" x1="100%" y1="50%" x2="0%" y2="100%"/></svg>'
@@ -89,10 +101,11 @@ $(document).ready(function() {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
+    swipe: false,
     fade: true,
     asNavFor: '#weekview'
   });
-   
+
   document.currentDate = new Date();
   document.prevSlide = 0;
   // Initialize actual slides based on today's date
@@ -101,8 +114,10 @@ $(document).ready(function() {
   // Reset current date so that when we call goto and start in the middle, currentDate gets set to the correct date
   document.currentDate.setDate(document.currentDate.getDate() - (window.totalElements / 2 >> 0));
 
+  // Initialize to middle of the slider
   $('#info').slick('slickGoTo', (window.totalElements / 2 >> 0));
 
+  // Add event handlers for updating days as people move through the calendar
   $('#weekview').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
     // afterChange doesn't have access to the slide before
     document.prevSlide = Number(currentSlide);
@@ -114,5 +129,16 @@ $(document).ready(function() {
     refresh(date, currentSlide > document.prevSlide);
   });
 
+  // Add Google Analytics tracking for buttons
+  $('#weekview').on('click', 'svg.slick-prev', function() {
+    _gaq.push(['_trackEvent', 'prev-arrow', 'clicked']);
+  })
+  $('#weekview').on('click', 'svg.slick-next', function() {
+    _gaq.push(['_trackEvent', 'next-arrow', 'clicked']);
+  })
+  // Add Google Analytics tracking for dates
+  $('#weekview').on('click', 'div.weekday-bubble', function() {
+    _gaq.push(['_trackEvent', 'date', 'clicked']);
+  })
 });
 
