@@ -130,12 +130,12 @@ $(document).ready(function() {
   });
 
   // Add Google Analytics tracking for buttons
-  $('#weekview').on('click', 'svg.slick-prev', function() {
-    _gaq.push(['_trackEvent', 'prev-arrow', 'clicked']);
-  })
-  $('#weekview').on('click', 'svg.slick-next', function() {
-    _gaq.push(['_trackEvent', 'next-arrow', 'clicked']);
-  })
+  $('#weekview').on('click', '.slick-arrow.slick-prev', function() {
+    _gaq.push(['_trackEvent', 'prevarrow', 'clicked']);
+  });
+  $('#weekview').on('click', '.slick-arrow.slick-next', function() {
+    _gaq.push(['_trackEvent', 'nextarrow', 'clicked']);
+  });
   // Add Google Analytics tracking for dates
   $('#weekview').on('click', 'div.weekday-bubble', function() {
     _gaq.push(['_trackEvent', 'date', 'clicked']);
