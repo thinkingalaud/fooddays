@@ -26,11 +26,10 @@ function getInfo(today, callback) {
     var day = new Date(today.getTime());
     day.setDate(today.getDate() + i);
     var day_strs = getSynonyms(day);
-    var raw_date = day.getFullYear() + '-' + day.getMonth() + '-' + day.getDate();
     
     d = {};
     d['date'] = day_strs[0];
-    d['raw_date'] = raw_date;
+    d['raw_date'] = day;
     d['dow'] = day.getDay();
     d['days'] = [];
     d['imgs'] = [];

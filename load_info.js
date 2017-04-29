@@ -32,6 +32,10 @@ function addInfo(element) {
   return [img, day]
 }
 
+function getFullDate(day) {
+  return day.getFullYear() + '-' + day.getMonth() + '-' + day.getDate();
+}
+
 function refresh(date, forward) {
   var window = chrome.extension.getBackgroundPage();
   document.currentDate = date;
@@ -43,33 +47,31 @@ function refresh(date, forward) {
 
     for (var i = 0; i < results.length; i++) {
       var result = results[i];
-      var element_id = 'info' + result['raw_date'];
-      var weekview_id = 'weekview' + result['raw_date'];
+      var full_date = getFullDate(result['raw_date']);
+      var element_id = 'info' + full_date;
+      var weekview_id = 'weekview' + full_date;
       var found = document.getElementById(element_id);
 
       if (found) {
         // console.log('Found ' + element_id);
       } else {
         // Add new slides
-        console.log('Adding ' + result['raw_date']);
+        console.log('Adding ' + full_date);
         // If we insert at the beginning all slides get shifted to the right but we need to make sure the current slide doesn't change
         if (!forward) {
           $('#weekview')[0].slick.currentSlide += 1;
           $('#info')[0].slick.currentSlide += 1;
         }
-        $('#weekview').slick('slickAdd', newWeekviewElement(result['raw_date']), !forward);
-        $('#info').slick('slickAdd', newDisplayElement(result['raw_date']), !forward);
+        $('#weekview').slick('slickAdd', newWeekviewElement(full_date), !forward);
+        $('#info').slick('slickAdd', newDisplayElement(full_date), !forward);
 
         // Populate all the info
-        document.getElementById(weekview_id).innerText = window.WEEKDAYS[result['dow']];
+        document.getElementById(weekview_id).innerHTML = '<span>' + window.WEEKDAYS[result['dow']] + '<br/>' + result['raw_date'].getDate() + '</span>';
+        document.getElementById(element_id).getElementsByClassName("info-title")[0].innerHTML = result['date'];
         if (result['days'].length == 0) {
-          document.getElementById(element_id).getElementsByClassName("info-title")[0].innerHTML = result['date'];
-
           infoElements = addInfo(document.getElementById(element_id));
           infoElements[1].innerHTML = "There is nothing happening today!";
         } else {
-          document.getElementById(element_id).getElementsByClassName("info-title")[0].innerHTML = result['date'];
-
           for (var j = 0; j < result['days'].length; j++) {
             infoElements = addInfo(document.getElementById(element_id));
             infoElements[0].style.backgroundImage = "url('" + result['imgs'][j] + "')";
