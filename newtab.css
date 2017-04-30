@@ -78,3 +78,91 @@
   margin-right: -10px;
   margin-top: 23px;
 }
+
+/* Settings modal */
+#settings-btn {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjAiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9IiNmYWxzZSIgPiAgICA8cGF0aCBkPSJNMTkuNCwxM2MwLTAuMywwLjEtMC43LDAuMS0xczAtMC43LTAuMS0xbDIuMS0xLjVjMC4yLTAuMSwwLjMtMC40LDAuMS0wLjdsLTItMy41QzE5LjUsNSwxOS4yLDQuOSwxOSw1bC0yLjQsMS4xIGMtMC41LTAuNC0xLjItMC44LTEuOC0xbC0wLjMtMi42QzE0LjUsMi4yLDE0LjMsMiwxNCwySDEwQzkuNywyLDkuNSwyLjIsOS41LDIuNUw5LjIsNWMtMC43LDAuMy0xLjMsMC42LTEuOCwxTDUsNSBDNC44LDQuOSw0LjUsNSw0LjQsNS4ybC0yLDMuNUMyLjIsOSwyLjIsOS4zLDIuNSw5LjRMNC42LDExYzAsMC4zLTAuMSwwLjctMC4xLDFzMCwwLjcsMC4xLDFsLTIuMSwxLjVjLTAuMiwwLjEtMC4zLDAuNC0wLjEsMC43IGwyLDMuNUM0LjUsMTksNC44LDE5LjEsNSwxOWwyLjQtMS4xYzAuNSwwLjQsMS4yLDAuOCwxLjgsMWwwLjMsMi42YzAsMC4zLDAuMiwwLjUsMC41LDAuNUgxNGMwLjMsMCwwLjUtMC4yLDAuNS0wLjVsMC4zLTIuNiBjMC43LTAuMywxLjMtMC42LDEuOC0xTDE5LDE5YzAuMiwwLjEsMC41LDAsMC42LTAuMmwyLTMuNWMwLjEtMC4yLDAuMS0wLjUtMC4xLTAuN0wxOS40LDEzeiBNMTIsMTZjLTIuMiwwLTQtMS44LTQtNCBjMC0yLjIsMS44LTQsNC00czQsMS44LDQsNEMxNiwxNC4yLDE0LjIsMTYsMTIsMTZ6Ij48L3BhdGg+PC9zdmc+') 50% 50% no-repeat;
+  background-size: 100%;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.modal-content {
+  position: fixed;
+  left: 3px;
+  bottom: 40px;
+  background-color: #fefefe;
+  margin: 10px;
+  padding: 15px;
+  border: 1px solid #000000;
+  border-radius: 7px;
+  width: 175px;
+}
+
+.modal-content::after, .modal-content::before {
+  top: 100%;
+  left: 17px;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.modal-content::after {
+  border-color: rgba(136, 183, 213, 0);
+  border-top-color: #fefefe;
+  border-width: 8px;
+  margin-left: -8px;
+}
+
+.modal-content::before {
+  border-color: rgba(105, 245, 171, 0);
+  border-top-color: #000000;
+  border-width: 9px;
+  margin-left: -9px;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#settings-color p {
+  display: inline-block;
+}
+
+.color-picker {
+  margin: 5px;
+  width: 25px;
+  height: 25px;
+  border: 1px solid #000;
+  display: inline-block;
+  vertical-align: middle;
+}

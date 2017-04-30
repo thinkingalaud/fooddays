@@ -5,7 +5,11 @@
   "description": "This extension has a new tab page for when it's a food day in the US",
   "version": "1.0",
 
-  "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+  "content_security_policy": "script-src 'self' 'unsafe-eval' https://ssl.google-analytics.com; object-src 'self'",
+
+  "permissions": [
+      "storage"
+  ],
 
   "background": {
     "persistent": true,

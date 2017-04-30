@@ -1,3 +1,5 @@
+var DEFAULT_BACKGROUND_COLOR = '#FFFFFF';
+
 // Google Analytics code
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-98193595-1']);
@@ -8,7 +10,6 @@ _gaq.push(['_trackPageview']);
   ga.src = 'https://ssl.google-analytics.com/ga.js';
   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
-
 
 function newWeekviewElement(id) {
   return '<div id="weekview' + id + '" class="weekday-bubble"></div>'
@@ -85,6 +86,14 @@ function refresh(date, forward) {
 }
 
 $(document).ready(function() {
+  // Set saved color background immediately
+  chrome.storage.local.get({"backgroundColor": "", "dateColor": "", "textColor": ""}, function(items) {
+    backgroundColor = items.backgroundColor ? items.backgroundColor : DEFAULT_BACKGROUND_COLOR;
+    document.body.style.backgroundColor = backgroundColor;
+    document.getElementById("backgroundColorPicker").jscolor.fromString(backgroundColor);
+  });
+
+  // Set up slider
   var window = chrome.extension.getBackgroundPage();
   $('#weekview').slick({
     variableWidth: true,
@@ -108,9 +117,9 @@ $(document).ready(function() {
     asNavFor: '#weekview'
   });
 
+  // Initialize actual slides based on today's date
   document.currentDate = new Date();
   document.prevSlide = 0;
-  // Initialize actual slides based on today's date
   refresh(document.currentDate, true);
 
   // Reset current date so that when we call goto and start in the middle, currentDate gets set to the correct date
@@ -130,6 +139,35 @@ $(document).ready(function() {
     date.setDate(document.currentDate.getDate() + diff);
     refresh(date, currentSlide > document.prevSlide);
   });
+
+  // Settings modal
+  var settingsModal = document.getElementById('settings');
+  var btn = document.getElementById("settings-btn");
+  btn.onclick = function() {
+    settingsModal.style.display = "block";
+  }
+  var close = document.getElementsByClassName("close")[0];
+  close.onclick = function() {
+    settingsModal.style.display = "none";
+  }
+  // When the user clicks anywhere outside of the modal, close it
+  document.onclick = function(event) {
+    if (event.target == settingsModal) {
+      settingsModal.style.display = "none";
+    }
+  }
+
+  // Settings modal - background color
+  var colorPickers = document.getElementById("settings-color").getElementsByClassName("color-picker-value");
+  for (var i = 0; i < colorPickers.length; i++) {
+    var picker = colorPickers[i];
+    picker.onchange = function(e) {
+      color = e.target.value;
+      chrome.storage.local.set({"backgroundColor": color}, function() {
+        document.body.style.backgroundColor = color;
+      });
+    }
+  }
 
   // Add Google Analytics tracking for buttons
   $('#weekview').on('click', '.slick-arrow.slick-prev', function() {
