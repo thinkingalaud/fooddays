@@ -45,7 +45,17 @@ def load_info():
         new_img_cache[key] = result
   print json.dumps(new_img_cache)
 
+def generate_picture_table():
+  res = u"<html><body><table border=\"1\"><tr><th>Date</th><th>Day</th><th>Image</th></tr>"
+  for key, src in sorted(img_cache.items()):
+    date, day = key.split(',', 1)
+    res += "<tr><td>%s</td><td>%s</td><td><img src=\"%s\"/ height=\"100\" width=\"100\"></td></tr>" % (date, day, src)
+  res += "</table></body></html>"
+  with open('test.html', 'wb') as f:
+    f.write(res.encode('utf-8'))
+
 #load_info()
+#generate_picture_table()
 
 # Old functions written in JS, originally was going to make the requests on the fly, but decided
 # it would be too slow and less reliable. Also, most of it is duplicated by https://github.com/ihurrahi/shouldipigout
