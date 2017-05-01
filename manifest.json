@@ -13,7 +13,7 @@
 
   "background": {
     "persistent": true,
-    "scripts": ["background.js"]
+    "scripts": ["data.js", "background.js"]
   },
 
   "chrome_url_overrides": {
