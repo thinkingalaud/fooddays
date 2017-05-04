@@ -11,6 +11,10 @@
       "storage"
   ],
 
+  "icons": {
+    "128": "icon.png"
+  },
+
   "background": {
     "persistent": true,
     "scripts": ["data.js", "background.js"]
