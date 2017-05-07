@@ -19,6 +19,14 @@ function newDisplayElement(id) {
   return '<div id="info' + id + '" class="info-display"> <div class="info-title"></div> <div class="info-content"> <div class="info-imgs"></div> <div class="info-days"></div> </div> </div>'
 }
 
+function newDots(num) {
+  res = '';
+  for(var i = 0; i < num; i++) {
+    res += '\u2022';
+  }
+  return res;
+}
+
 function addInfo(element) {
   img = document.createElement('div');
   img.className = 'info-img';
@@ -36,6 +44,7 @@ function addInfo(element) {
 function getFullDate(day) {
   return day.getFullYear() + '-' + day.getMonth() + '-' + day.getDate();
 }
+
 
 function refresh(date, forward) {
   var window = chrome.extension.getBackgroundPage();
@@ -67,7 +76,8 @@ function refresh(date, forward) {
         $('#info').slick('slickAdd', newDisplayElement(full_date), !forward);
 
         // Populate all the info
-        document.getElementById(weekview_id).innerHTML = '<span>' + window.WEEKDAYS[result['dow']] + '<br/>' + result['raw_date'].getDate() + '</span>';
+        dots = newDots(result['days'].length);
+        document.getElementById(weekview_id).innerHTML = '<span>' + window.WEEKDAYS[result['dow']] + '<br/>' + result['raw_date'].getDate() + '<br/>' + dots + '</span>';
         document.getElementById(element_id).getElementsByClassName("info-title")[0].innerHTML = result['date'];
         if (result['days'].length == 0) {
           infoElements = addInfo(document.getElementById(element_id));

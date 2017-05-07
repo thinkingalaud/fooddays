@@ -21,7 +21,8 @@
 
 .weekday-bubble span {
   display: table-cell;
-  vertical-align: middle;
+  vertical-align: top;
+  padding-top: 31px;
 }
 
 .info-display {
