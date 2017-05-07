@@ -27,6 +27,7 @@
 .info-display {
   font-family: 'Roboto', sans-serif;
   text-align: center;
+  height: 500px;
 }
 
 .info-title {
@@ -34,24 +35,36 @@
   padding: 20px;
 }
 
+.info-content {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.info-days {
+  white-space: nowrap;
+}
+
 .info-day {
-  margin-left: 4%;
-  margin-right: 4%;
+  margin-left: 50px;
+  margin-right: 50px;
   font-size: x-large;
-  background: rgb(239, 239, 239);
   background: rgba(239, 239, 239, 0.9);
   border-radius: 90px;
   position: relative;
   top: -225px;
   width: 250px;
   padding: 25px;
-  word-wrap: break-word;
   display: inline-block;
+  white-space: normal;
+}
+
+.info-imgs {
+  white-space: nowrap;
 }
 
 .info-img {
-  margin-left: 2%;
-  margin-right: 2%;
+  margin-left: 25px;
+  margin-right: 25px;
   opacity: 0.7;
   height: 350px;
   width: 350px;
@@ -63,7 +76,7 @@
 }
 
 .slick-slider {
-  margin: auto 75px auto 75px;
+  margin: auto 75px auto 75px; 
 }
 
 .arrow {

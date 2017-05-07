@@ -16,7 +16,7 @@ function newWeekviewElement(id) {
 }
 
 function newDisplayElement(id) {
-  return '<div id="info' + id + '" class="info-display"> <div class="info-title"></div> <div class="info-imgs"></div> <div class="info-days"></div> </div>'
+  return '<div id="info' + id + '" class="info-display"> <div class="info-title"></div> <div class="info-content"> <div class="info-imgs"></div> <div class="info-days"></div> </div> </div>'
 }
 
 function addInfo(element) {
