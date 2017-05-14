@@ -8,6 +8,59 @@ var DAYS_IN_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 var totalElements = 21;
 
+// Helper functions used in child pages
+
+function newWeekviewElement(id) {
+  return '<div id="weekview' + id + '" class="weekday-bubble"></div>'
+}
+
+function newDisplayElement(id) {
+  return '<div id="info' + id + '" class="info-display"> <div class="info-title"></div> <div class="info-content"> <div class="info-imgs"></div> <div class="info-days"></div> </div> </div>'
+}
+
+function newDots(num) {
+  res = '';
+  for(var i = 0; i < num; i++) {
+    res += '\u2022';
+  }
+  return res;
+}
+
+function addInfo(element) {
+  img = document.createElement('div');
+  img.className = 'info-img';
+  subelement = element.getElementsByClassName('info-imgs')[0];
+  subelement.appendChild(img);
+
+  day = document.createElement('div');
+  day.className = 'info-day';
+  subelement = element.getElementsByClassName('info-days')[0];
+  subelement.appendChild(day);
+
+  return [img, day]
+}
+
+function getFullDate(day) {
+  return day.getFullYear() + '-' + day.getMonth() + '-' + day.getDate();
+}
+
+function populateElement(element, result) {
+  element.getElementsByClassName("info-title")[0].innerHTML = result['date'];
+  if (result['days'].length == 0) {
+    infoElements = addInfo(element);
+    infoElements[1].innerHTML = "There is nothing happening today!";
+  } else {
+    for (var j = 0; j < result['days'].length; j++) {
+      infoElements = addInfo(element);
+      infoElements[0].style.backgroundImage = "url('" + result['imgs'][j] + "')";
+      infoElements[1].innerHTML = result['days'][j];
+    }
+  }
+}
+
+// End helper functions
+
+
 function getSynonyms(date) {
   var res = [];
   res.push(MONTHS[date.getMonth()] + ' ' + date.getDate());

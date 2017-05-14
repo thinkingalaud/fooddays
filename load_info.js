@@ -11,41 +11,6 @@ _gaq.push(['_trackPageview']);
   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
 
-function newWeekviewElement(id) {
-  return '<div id="weekview' + id + '" class="weekday-bubble"></div>'
-}
-
-function newDisplayElement(id) {
-  return '<div id="info' + id + '" class="info-display"> <div class="info-title"></div> <div class="info-content"> <div class="info-imgs"></div> <div class="info-days"></div> </div> </div>'
-}
-
-function newDots(num) {
-  res = '';
-  for(var i = 0; i < num; i++) {
-    res += '\u2022';
-  }
-  return res;
-}
-
-function addInfo(element) {
-  img = document.createElement('div');
-  img.className = 'info-img';
-  subelement = element.getElementsByClassName('info-imgs')[0];
-  subelement.appendChild(img);
-
-  day = document.createElement('div');
-  day.className = 'info-day';
-  subelement = element.getElementsByClassName('info-days')[0];
-  subelement.appendChild(day);
-
-  return [img, day]
-}
-
-function getFullDate(day) {
-  return day.getFullYear() + '-' + day.getMonth() + '-' + day.getDate();
-}
-
-
 function refresh(date, forward) {
   var window = chrome.extension.getBackgroundPage();
   document.currentDate = date;
@@ -57,7 +22,7 @@ function refresh(date, forward) {
 
     for (var i = 0; i < results.length; i++) {
       var result = results[i];
-      var full_date = getFullDate(result['raw_date']);
+      var full_date = window.getFullDate(result['raw_date']);
       var element_id = 'info' + full_date;
       var weekview_id = 'weekview' + full_date;
       var found = document.getElementById(element_id);
@@ -72,23 +37,14 @@ function refresh(date, forward) {
           $('#weekview')[0].slick.currentSlide += 1;
           $('#info')[0].slick.currentSlide += 1;
         }
-        $('#weekview').slick('slickAdd', newWeekviewElement(full_date), !forward);
-        $('#info').slick('slickAdd', newDisplayElement(full_date), !forward);
+        $('#weekview').slick('slickAdd', window.newWeekviewElement(full_date), !forward);
+        $('#info').slick('slickAdd', window.newDisplayElement(full_date), !forward);
 
         // Populate all the info
-        dots = newDots(result['days'].length);
+        dots = window.newDots(result['days'].length);
         document.getElementById(weekview_id).innerHTML = '<span>' + window.WEEKDAYS[result['dow']] + '<br/>' + result['raw_date'].getDate() + '<br/>' + dots + '</span>';
-        document.getElementById(element_id).getElementsByClassName("info-title")[0].innerHTML = result['date'];
-        if (result['days'].length == 0) {
-          infoElements = addInfo(document.getElementById(element_id));
-          infoElements[1].innerHTML = "There is nothing happening today!";
-        } else {
-          for (var j = 0; j < result['days'].length; j++) {
-            infoElements = addInfo(document.getElementById(element_id));
-            infoElements[0].style.backgroundImage = "url('" + result['imgs'][j] + "')";
-            infoElements[1].innerHTML = result['days'][j];
-          }
-        }
+        info_element = document.getElementById(element_id);
+        window.populateElement(info_element, result);
       }
     }
     // TODO: delete elements that are not found in the results to reduce cruft
