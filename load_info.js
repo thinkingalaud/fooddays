@@ -52,6 +52,8 @@ function refresh(date, forward) {
 }
 
 $(document).ready(function() {
+  var window = chrome.extension.getBackgroundPage();
+
   // Set saved color background immediately
   chrome.storage.local.get({"backgroundColor": "", "dateColor": "", "textColor": ""}, function(items) {
     backgroundColor = items.backgroundColor ? items.backgroundColor : DEFAULT_BACKGROUND_COLOR;
@@ -60,7 +62,6 @@ $(document).ready(function() {
   });
 
   // Set up slider
-  var window = chrome.extension.getBackgroundPage();
   $('#weekview').slick({
     variableWidth: true,
     adaptiveHeight: true,

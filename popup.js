@@ -29,5 +29,11 @@ function load(date) {
 }
 
 $(document).ready(function() {
+   // Set saved color background immediately
+  chrome.storage.local.get("backgroundColor", function(items) {
+    backgroundColor = items.backgroundColor ? items.backgroundColor : DEFAULT_BACKGROUND_COLOR;
+    document.body.style.backgroundColor = backgroundColor;
+  });
+
   load(new Date());
 });
