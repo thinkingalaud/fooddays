@@ -60,6 +60,11 @@
   white-space: normal;
 }
 
+.info-day-uneventful {
+  font-size: small;
+  top: -280px;
+}
+
 .info-imgs {
   white-space: nowrap;
 }
@@ -75,6 +80,13 @@
   background-image: url('');
   background-position: 50% 0%;
   display: inline-block;
+}
+
+.img-subtext {
+  position: relative;
+  top: 330px;
+  left: 125px;
+  font-size: x-small;
 }
 
 .slick-slider {

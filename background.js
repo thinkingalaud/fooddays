@@ -8,6 +8,16 @@ var DAYS_IN_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 var totalElements = 21;
 
+var UNEVENTFULS = [
+  ["images/donut.png", "Donut worry - another food day is coming up soon!"],
+  ["images/peanut.png", "Don't go nuts - another food day is coming up soon!"],
+  ["images/romaine.png", "Romaine calm - another food day is coming up soon!"],
+  ["images/kiwi.png", "There's no food day today - it's kiwing me too."],
+  ["images/tempura.png", "Don't lose your tempura - another food day is coming up soon!"],
+  ["images/matcha.png", "Don't freak out too matcha - another food day is coming up soon!"],
+  ["images/dill.png", "There's no food day today - I hope it's not too big of a dill!"]
+];
+
 // Helper functions used in child pages
 
 function newWeekviewElement(id) {
@@ -48,7 +58,11 @@ function populateElement(element, result) {
   element.getElementsByClassName("info-title")[0].innerHTML = result['date'];
   if (result['days'].length == 0) {
     infoElements = addInfo(element);
-    infoElements[1].innerHTML = "There is nothing happening today!";
+    index = result['raw_date'].getDate() % UNEVENTFULS.length
+    infoElements[0].style.backgroundImage = "url(" + UNEVENTFULS[index][0] + ")";
+    infoElements[0].innerHTML = "<div class='img-subtext'>art by <a target='_blank' href='https://www.instagram.com/subtle_smiles/'>subtle_smiles</a></dev>";
+    infoElements[1].classList.add("info-day-uneventful");
+    infoElements[1].innerHTML = UNEVENTFULS[index][1];
   } else {
     for (var j = 0; j < result['days'].length; j++) {
       infoElements = addInfo(element);
