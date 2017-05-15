@@ -1,7 +1,7 @@
 // Google Analytics code
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-98193595-1']);
-_gaq.push(['_trackPageview']);
+_gaq.push(['_trackPageview', document.location.pathname]);
 
 (function() {
   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
