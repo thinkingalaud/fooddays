@@ -34,6 +34,5 @@ $(document).ready(function() {
     backgroundColor = items.backgroundColor ? items.backgroundColor : DEFAULT_BACKGROUND_COLOR;
     document.body.style.backgroundColor = backgroundColor;
   });
-
   load(new Date());
 });

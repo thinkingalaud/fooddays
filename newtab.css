@@ -29,6 +29,7 @@
   font-family: 'Roboto', sans-serif;
   text-align: center;
   height: 450px;
+  overflow: hidden;
 }
 
 .info-title {
@@ -39,11 +40,12 @@
 .info-content {
   overflow-x: scroll;
   overflow-y: hidden;
-  height: 350px;
+  height: 400px;
 }
 
 .info-days {
   white-space: nowrap;
+  height: 0px;
 }
 
 .info-day {
