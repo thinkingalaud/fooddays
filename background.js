@@ -1,4 +1,4 @@
-// cache and img_cache come from data.js
+var DEFAULT_BACKGROUND_COLOR = '#FFFFFF';
 
 var MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 var WEEKDAYS = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];

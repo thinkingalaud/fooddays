@@ -1,5 +1,3 @@
-var DEFAULT_BACKGROUND_COLOR = '#FFFFFF';
-
 // Google Analytics code
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-98193595-1']);
@@ -56,7 +54,7 @@ $(document).ready(function() {
 
   // Set saved color background immediately
   chrome.storage.local.get({"backgroundColor": "", "dateColor": "", "textColor": ""}, function(items) {
-    backgroundColor = items.backgroundColor ? items.backgroundColor : DEFAULT_BACKGROUND_COLOR;
+    backgroundColor = items.backgroundColor ? items.backgroundColor : window.DEFAULT_BACKGROUND_COLOR;
     document.body.style.backgroundColor = backgroundColor;
     document.getElementById("backgroundColorPicker").jscolor.fromString(backgroundColor);
   });

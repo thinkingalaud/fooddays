@@ -15,7 +15,6 @@ function load(date) {
     for (var i = 0; i < results.length; i++) {
       var result = results[i];
       if (window.getFullDate(result['raw_date']) == window.getFullDate(date)) {
-        console.log('made it!');
         full_date = window.getFullDate(result['raw_date']);
         element_string = window.newDisplayElement(full_date);
         parent = document.getElementById('info');
@@ -29,9 +28,10 @@ function load(date) {
 }
 
 $(document).ready(function() {
+  var window = chrome.extension.getBackgroundPage();
    // Set saved color background immediately
   chrome.storage.local.get("backgroundColor", function(items) {
-    backgroundColor = items.backgroundColor ? items.backgroundColor : DEFAULT_BACKGROUND_COLOR;
+    backgroundColor = items.backgroundColor ? items.backgroundColor : window.DEFAULT_BACKGROUND_COLOR;
     document.body.style.backgroundColor = backgroundColor;
   });
   load(new Date());
