@@ -53,7 +53,7 @@ $(document).ready(function() {
   var window = chrome.extension.getBackgroundPage();
 
   // Set saved color background immediately
-  chrome.storage.local.get({"backgroundColor": "", "dateColor": "", "textColor": ""}, function(items) {
+  chrome.storage.local.get("backgroundColor", function(items) {
     backgroundColor = items.backgroundColor ? items.backgroundColor : window.DEFAULT_BACKGROUND_COLOR;
     document.body.style.backgroundColor = backgroundColor;
     document.getElementById("backgroundColorPicker").jscolor.fromString(backgroundColor);
