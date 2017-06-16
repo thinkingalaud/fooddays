@@ -83,8 +83,7 @@ $(document).ready(function() {
     slidesToScroll: 1,
     arrows: false,
     swipe: false,
-    fade: true,
-    asNavFor: '#weekview'
+    fade: true
   });
 
   // Initialize actual slides based on today's date
@@ -95,8 +94,10 @@ $(document).ready(function() {
   // Reset current date so that when we call goto and start in the middle, currentDate gets set to the correct date
   document.currentDate.setDate(document.currentDate.getDate() - (window.totalElements / 2 >> 0));
 
-  // Initialize to middle of the slider
-  $('#info').slick('slickGoTo', (window.totalElements / 2 >> 0));
+  // Initialize to middle of the slider, don't animate, setup nav coordination after initial slide movement
+  $('#info').slick('slickGoTo', (window.totalElements / 2 >> 0), true);
+  $('#weekview').slick('slickGoTo', (window.totalElements / 2 >> 0), true);
+  $('#info').slick('slickSetOption', {'asNavFor': '#weekview'});
 
   // Add event handlers for updating days as people move through the calendar
   $('#weekview').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
