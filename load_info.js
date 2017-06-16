@@ -51,12 +51,17 @@ function refresh(date, forward) {
 
 $(document).ready(function() {
   var window = chrome.extension.getBackgroundPage();
+  var colors = {
+    "backgroundColor": window.DEFAULT_BACKGROUND_COLOR,
+    "fontColor": window.DEFAULT_FONT_COLOR
+  };
 
   // Set saved color background immediately
-  chrome.storage.local.get("backgroundColor", function(items) {
-    backgroundColor = items.backgroundColor ? items.backgroundColor : window.DEFAULT_BACKGROUND_COLOR;
-    document.body.style.backgroundColor = backgroundColor;
-    document.getElementById("backgroundColorPicker").jscolor.fromString(backgroundColor);
+  chrome.storage.local.get(colors, function(items) {
+    document.body.style.backgroundColor = items.backgroundColor;
+    document.body.style.color = items.fontColor;
+    document.getElementById("backgroundColorPicker").jscolor.fromString(items.backgroundColor);
+    document.getElementById("fontColorPicker").jscolor.fromString(items.fontColor);
   });
 
   // Set up slider
@@ -122,14 +127,23 @@ $(document).ready(function() {
     }
   }
 
-  // Settings modal - background color
+  // Settings modal - background and font color
   var colorPickers = document.getElementById("settings-color").getElementsByClassName("color-picker-value");
   for (var i = 0; i < colorPickers.length; i++) {
     var picker = colorPickers[i];
     picker.onchange = function(e) {
+      changeType = e.target.id;
       color = e.target.value;
-      chrome.storage.local.set({"backgroundColor": color}, function() {
-        document.body.style.backgroundColor = color;
+
+      var update = {};
+      update[changeType] = color;
+
+      chrome.storage.local.set(update, function() {
+        if (changeType === 'backgroundColor') {
+          document.body.style.backgroundColor = color;
+        } else if (changeType === 'fontColor') {
+          document.body.style.color = color;
+        }
       });
     }
   }
