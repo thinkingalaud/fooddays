@@ -62,6 +62,11 @@
   white-space: normal;
 }
 
+.info-day a {
+  color: #000;
+  text-decoration: none;
+}
+
 .info-day-uneventful {
   font-size: small;
   top: -280px;

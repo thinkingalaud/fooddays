@@ -68,7 +68,7 @@ function populateElement(element, result) {
     for (var j = 0; j < result['days'].length; j++) {
       infoElements = addInfo(element);
       infoElements[0].style.backgroundImage = "url('" + result['imgs'][j] + "')";
-      infoElements[1].innerHTML = result['days'][j];
+      infoElements[1].innerHTML = "<a target='_blank' href=\"https://www.google.com/search?q=" + encodeURIComponent(result['days'][j]) + "\">" + result['days'][j] + "</a>";
     }
   }
 }
