@@ -91,9 +91,6 @@ $(document).ready(function() {
   document.prevSlide = 0;
   refresh(document.currentDate, true);
 
-  // Reset current date so that when we call goto and start in the middle, currentDate gets set to the correct date
-  document.currentDate.setDate(document.currentDate.getDate() - (window.totalElements / 2 >> 0));
-
   // Initialize to middle of the slider, don't animate, setup nav coordination after initial slide movement
   $('#info').slick('slickGoTo', (window.totalElements / 2 >> 0), true);
   $('#weekview').slick('slickGoTo', (window.totalElements / 2 >> 0), true);
@@ -107,7 +104,7 @@ $(document).ready(function() {
   $('#weekview').on('afterChange', function(event, slick, currentSlide) {
     var diff = currentSlide - document.prevSlide;
     var date = new Date(document.currentDate.getTime());
-    date.setDate(document.currentDate.getDate() + diff);
+    date.setDate(date.getDate() + diff);
     refresh(date, currentSlide > document.prevSlide);
   });
 
