@@ -3,6 +3,9 @@
 
 import json
 import requests
+from collections import defaultdict
+from HTMLParser import HTMLParser
+
 cache = json.loads('''{
   "December 2": [
     "National Fritters Day"
@@ -1097,8 +1100,63 @@ def generate_picture_table():
   with open('test.html', 'wb') as f:
     f.write(res.encode('utf-8'))
 
+class FoodDaysHTMLParser(HTMLParser):
+  BLACKLIST_CATEGORIES = ['See also', 'References']
+
+  def __init__(self):
+    HTMLParser.__init__(self)
+    self.result = {}
+    self.h2 = False
+    self.category = None
+    self.table = self.thead = self.tbody = self.tr = self.th = self.td = False
+    self.headers = []
+    self.row = [""]
+
+  def handle_starttag(self, tag, attrs):
+    attrs = dict(attrs)
+    if tag == 'h2':
+      self.h2 = True
+    if tag == 'span' and self.h2 and attrs.get('class') == 'mw-headline':
+      self.category = None
+    if tag in {'table', 'tr', 'th', 'td'}:
+      setattr(self, tag, True)
+    if tag == 'table':
+      self.headers = []
+    if tag == 'tr':
+      self.row = [""]
+
+  def handle_endtag(self, tag):
+    if tag == 'h2':
+      self.h2 = False
+    if self.category == None:
+      self.category = False
+    if tag == 'tr' and len(self.headers) > 0 and len(self.row) > 1:
+      row = dict(zip(self.headers, self.row[:-1]))
+      self.result[self.category][row['Date']].append(row['Event'])
+    if tag == 'td':
+      self.row.append("")
+    if tag in {'table', 'tr', 'th', 'td'}:
+      setattr(self, tag, False)
+
+  def handle_data(self, data):
+    if self.h2 and self.category is None and data not in FoodDaysHTMLParser.BLACKLIST_CATEGORIES:
+      self.category = data
+      self.result[self.category] = defaultdict(lambda: list(""))
+    if self.table and self.tr and self.th:
+      self.headers.append(data)
+    if self.table and self.tr and self.td:
+      self.row[-1] += data
+
+def parse_wiki_page():
+  wiki_res = requests.get(DATA_URL)
+  parser = FoodDaysHTMLParser()
+  parser.feed(wiki_res.text)
+  res = dict((k, dict(v)) for k, v in parser.result.items())
+  return res
+
 #load_info()
 #generate_picture_table()
+#print json.dumps(parse_wiki_page(), indent=2)
 
 # Old functions written in JS, originally was going to make the requests on the fly, but decided
 # it would be too slow and less reliable. Also, most of it is duplicated by https://github.com/ihurrahi/shouldipigout
