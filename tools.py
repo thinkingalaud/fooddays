@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import json
+import re
 import requests
 from collections import defaultdict
 from HTMLParser import HTMLParser
@@ -72,7 +73,7 @@ class FoodDaysHTMLParser(HTMLParser):
 
   def __init__(self):
     HTMLParser.__init__(self)
-    self.result = {}
+    self.result = defaultdict(list)
     self.h2 = False
     self.category = None
     self.table = self.thead = self.tbody = self.tr = self.th = self.td = False
@@ -99,7 +100,7 @@ class FoodDaysHTMLParser(HTMLParser):
       self.category = False
     if tag == 'tr' and len(self.headers) > 0 and len(self.row) > 1:
       row = dict(zip(self.headers, self.row[:-1]))
-      self.result[self.category][row['Date']].append(row['Event'])
+      self.result[row['Date']].append([row['Event'], self.category])
     if tag == 'td':
       self.row.append("")
     if tag in {'table', 'tr', 'th', 'td'}:
@@ -108,18 +109,16 @@ class FoodDaysHTMLParser(HTMLParser):
   def handle_data(self, data):
     if self.h2 and self.category is None and data not in FoodDaysHTMLParser.BLACKLIST_CATEGORIES:
       self.category = data
-      self.result[self.category] = defaultdict(lambda: list(""))
     if self.table and self.tr and self.th:
       self.headers.append(data)
     if self.table and self.tr and self.td:
-      self.row[-1] += data.replace('\n', ' ')
+      self.row[-1] += re.sub('\[.*\]', '', data.replace('\n', ' '))
 
 def parse_wiki_page():
   wiki_res = requests.get(DATA_URL)
   parser = FoodDaysHTMLParser()
   parser.feed(wiki_res.text)
-  res = dict((k, dict(v)) for k, v in parser.result.items())
-  return res
+  return parser.result
 
 #load_info()
 #generate_picture_table()
