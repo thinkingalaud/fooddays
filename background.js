@@ -19,6 +19,26 @@ var UNEVENTFULS = [
   ["images/dill.png", "There's no food day today - I hope it's not too big of a dill!"]
 ];
 
+var COUNTRIES = {
+  "Global": "images/flags/Global.png",
+  "Africa": "images/flags/Flag_of_South_Africa.png",
+  "Australia": "images/flags/Flag_of_Australia.png",
+  "Brazil": "images/flags/Flag_of_Brazil.png",
+  "Canada": "images/flags/Flag_of_Canada.png",
+  "Germany": "images/flags/Flag_of_Germany.png",
+  "Iceland": "images/flags/Flag_of_Iceland.png",
+  "India": "images/flags/Flag_of_India.png",
+  "Italy": "images/flags/Flag_of_Italy.png",
+  "Japan": "images/flags/Flag_of_Japan.png",
+  "Luxembourg": "images/flags/Flag_of_Luxembourg.png",
+  "Netherlands": "images/flags/Flag_of_Netherlands.png",
+  "South Korea": "images/flags/Flag_of_South_Korea.png",
+  "Sweden": "images/flags/Flag_of_Sweden.png",
+  "Turkmenistan": "images/flags/Flag_of_Turkmenistan.png",
+  "United Kingdom": "images/flags/Flag_of_United_Kingdom.png",
+  "United States": "images/flags/Flag_of_United_States.png"
+}
+
 // Helper functions used in child pages
 
 function newWeekviewElement(id) {
@@ -61,13 +81,14 @@ function populateElement(element, result) {
     infoElements = addInfo(element);
     index = result['raw_date'].getDate() % UNEVENTFULS.length
     infoElements[0].style.backgroundImage = "url(" + UNEVENTFULS[index][0] + ")";
-    infoElements[0].innerHTML = "<div class='img-subtext'>art by <a target='_blank' href='https://www.instagram.com/subtle_smiles/'>subtle_smiles</a></dev>";
+    infoElements[0].innerHTML = "<div class='img-subtext-uneventful'>art by <a target='_blank' href='https://www.instagram.com/subtle_smiles/'>subtle_smiles</a></div>";
     infoElements[1].classList.add("info-day-uneventful");
     infoElements[1].innerHTML = UNEVENTFULS[index][1];
   } else {
     for (var j = 0; j < result['days'].length; j++) {
       infoElements = addInfo(element);
       infoElements[0].style.backgroundImage = "url('" + result['imgs'][j] + "')";
+      infoElements[0].innerHTML = "<div class='corner-box'><div class='corner-tip'><div class='corner-contents'><img src='" + COUNTRIES[result['countries'][j]] + "' class='img-subtext-country' /></div></div></div><span class='tooltiptext'>" + result['countries'][j] + "</span>"
       infoElements[1].innerHTML = "<a target='_blank' href=\"https://www.google.com/search?q=" + encodeURIComponent(result['days'][j]) + "\">" + result['days'][j] + "</a>";
     }
   }
@@ -100,6 +121,7 @@ function getInfo(today, callback) {
     d['raw_date'] = day;
     d['dow'] = day.getDay();
     d['days'] = [];
+    d['countries'] = [];
     d['imgs'] = [];
 
     for (var j = 0; j < day_strs.length; j++) {
@@ -110,8 +132,9 @@ function getInfo(today, callback) {
         days = cache[day_str];
         for (var k = 0; k < days.length; k++) {
           console.log([day_str, days[k]]);
-          d['days'].push(days[k]);
-          d['imgs'].push(img_cache[[day_str, days[k]]]);
+          d['days'].push(days[k][0]);
+          d['countries'].push(days[k][1]);
+          d['imgs'].push(img_cache[[day_str, days[k][0]]]);
         }
       }
     }

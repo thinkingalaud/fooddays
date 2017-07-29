@@ -50,20 +50,21 @@ def get_food_image(date, food_day):
   return None
 
 def load_info():
-  new_img_cache = dict((key, value) for key, value in img_cache.items() if value is not None)
+  new_img_cache = img_cache.copy()
   for date in cache:
-    for day in cache[date]:
+    for day, country in cache[date]:
       key = ",".join([date, day])
       if key not in new_img_cache:
         result = get_food_image(date, day)
         new_img_cache[key] = result
-  print json.dumps(new_img_cache)
+  print json.dumps(new_img_cache, indent=2)
 
 def generate_picture_table():
-  res = u"<html><body><table border=\"1\"><tr><th>Date</th><th>Day</th><th>Image</th></tr>"
-  for key, src in sorted(img_cache.items()):
-    date, day = key.split(',', 1)
-    res += "<tr><td>%s</td><td>%s</td><td><img src=\"%s\"/ height=\"100\" width=\"100\"></td></tr>" % (date, day, src)
+  res = u"<html><body><table border=\"1\"><tr><th>Date</th><th>Country</th><th>Day</th><th>Image</th></tr>"
+  for date, days in sorted(cache.items()):
+    for day, country in days:
+      src = img_cache[date + ',' + day]
+      res += "<tr><td>%s</td><td>%s</td><td>%s</td><td><img src=\"%s\"/ height=\"100\" width=\"100\"></td></tr>" % (date, country, day, src)
   res += "</table></body></html>"
   with open('test.html', 'wb') as f:
     f.write(res.encode('utf-8'))
