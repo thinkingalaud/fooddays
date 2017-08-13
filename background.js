@@ -46,7 +46,7 @@ function newWeekviewElement(id) {
 }
 
 function newDisplayElement(id) {
-  return '<div id="info' + id + '" class="info-display"> <div class="info-title"></div> <div class="info-content"> <div class="info-imgs"></div> <div class="info-days"></div> </div> </div>'
+  return '<div id="info' + id + '" class="info-display"> <div class="info-title"></div> <div class="info-content"> </div> </div>'
 }
 
 function newDots(num) {
@@ -58,21 +58,48 @@ function newDots(num) {
 }
 
 function addInfo(element) {
-  img = document.createElement('div');
-  img.className = 'info-img';
-  subelement = element.getElementsByClassName('info-imgs')[0];
-  subelement.appendChild(img);
+  info = document.createElement("div");
+  info.className = "info-single";
 
-  day = document.createElement('div');
-  day.className = 'info-day';
-  subelement = element.getElementsByClassName('info-days')[0];
-  subelement.appendChild(day);
+  day = document.createElement("div");
+  day.className = "info-day";
+  info.appendChild(day);
 
-  return [img, day]
+  subelement = element.getElementsByClassName("info-content")[0];
+  subelement.appendChild(info);
+
+  return [info, day]
+}
+
+function createUneventfulSubtext() {
+  uneventful = document.createElement("div");
+  uneventful.className = "img-subtext-uneventful";
+  uneventful.innerHTML = "art by <a target='_blank' href='https://www.instagram.com/subtle_smiles/'>subtle_smiles</a>"
+  return uneventful;
+}
+
+function createCornerFlag(flagSrc, tooltipText) {
+  cornerBox = document.createElement("div");
+  cornerBox.className = "corner-box";
+  cornerTip = document.createElement("div");
+  cornerTip.className = "corner-tip";
+  cornerContents = document.createElement("div");
+  cornerContents.className = "corner-contents";
+  flag = document.createElement("img");
+  flag.className = "img-subtext-country";
+  flag.src = flagSrc;
+  tooltip = document.createElement("span");
+  tooltip.className = "tooltiptext";
+  tooltip.innerHTML = tooltipText;
+
+  cornerBox.appendChild(cornerTip);
+  cornerTip.appendChild(cornerContents);
+  cornerContents.appendChild(flag);
+  return [cornerBox, tooltip]
 }
 
 function getFullDate(day) {
-  return day.getFullYear() + '-' + day.getMonth() + '-' + day.getDate();
+  return day.getFullYear() + "-" + day.getMonth() + "-" + day.getDate();
 }
 
 function populateElement(element, result) {
@@ -81,14 +108,16 @@ function populateElement(element, result) {
     infoElements = addInfo(element);
     index = result['raw_date'].getDate() % UNEVENTFULS.length
     infoElements[0].style.backgroundImage = "url(" + UNEVENTFULS[index][0] + ")";
-    infoElements[0].innerHTML = "<div class='img-subtext-uneventful'>art by <a target='_blank' href='https://www.instagram.com/subtle_smiles/'>subtle_smiles</a></div>";
+    infoElements[0].appendChild(createUneventfulSubtext());
     infoElements[1].classList.add("info-day-uneventful");
     infoElements[1].innerHTML = UNEVENTFULS[index][1];
   } else {
     for (var j = 0; j < result['days'].length; j++) {
       infoElements = addInfo(element);
       infoElements[0].style.backgroundImage = "url('" + result['imgs'][j] + "')";
-      infoElements[0].innerHTML = "<div class='corner-box'><div class='corner-tip'><div class='corner-contents'><img src='" + COUNTRIES[result['countries'][j]] + "' class='img-subtext-country' /></div></div></div><span class='tooltiptext'>" + result['countries'][j] + "</span>"
+      cornerFlag = createCornerFlag(COUNTRIES[result['countries'][j]], result['countries'][j]);
+      infoElements[0].appendChild(cornerFlag[0]);
+      infoElements[0].appendChild(cornerFlag[1]);
       infoElements[1].innerHTML = "<a target='_blank' href=\"https://www.google.com/search?q=" + encodeURIComponent(result['days'][j]) + "\">" + result['days'][j] + "</a>";
     }
   }
