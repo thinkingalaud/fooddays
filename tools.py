@@ -6,6 +6,7 @@ import re
 import requests
 from collections import defaultdict
 from HTMLParser import HTMLParser
+from imgurpython import ImgurClient
 
 def read_data():
   res = []
@@ -121,9 +122,19 @@ def parse_wiki_page():
   parser.feed(wiki_res.text)
   return parser.result
 
-#load_info()
-#generate_picture_table()
-#print json.dumps(parse_wiki_page(), indent=2)
+def upload_to_imgur():
+  # visit https://api.imgur.com/oauth2/authorize?client_id=77fbcca7c596528&response_type=token
+  # to regenerate access token and refresh token and save in the secrets file
+  secrets = load_secrets()
+  client = ImgurClient(secrets['IMGUR_CLIENT_ID'], secrets['IMGUR_CLIENT_SECRET'], secrets['IMGUR_ACCESS_TOKEN'], secrets['IMGUR_REFRESH_TOKEN'])
+  new_links = {}
+  for key, link in img_cache:
+    try:
+      res = client.upload_from_url(link)
+      new_links[key] = res['link']
+    except:
+      new_links[key] = link
+  return new_links
 
 # Old functions written in JS, originally was going to make the requests on the fly, but decided
 # it would be too slow and less reliable. Also, most of it is duplicated by https://github.com/ihurrahi/shouldipigout
