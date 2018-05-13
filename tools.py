@@ -7,6 +7,7 @@ import requests
 from collections import defaultdict
 from HTMLParser import HTMLParser
 from imgurpython import ImgurClient
+from imgurpython.helpers.error import ImgurClientRateLimitError
 
 def read_data():
   res = []
@@ -122,18 +123,35 @@ def parse_wiki_page():
   parser.feed(wiki_res.text)
   return parser.result
 
-def upload_to_imgur():
+def get_imgur_client():
   # visit https://api.imgur.com/oauth2/authorize?client_id=77fbcca7c596528&response_type=token
   # to regenerate access token and refresh token and save in the secrets file
   secrets = load_secrets()
   client = ImgurClient(secrets['IMGUR_CLIENT_ID'], secrets['IMGUR_CLIENT_SECRET'], secrets['IMGUR_ACCESS_TOKEN'], secrets['IMGUR_REFRESH_TOKEN'])
+  return client
+  
+def upload_to_imgur():
+  client = get_imgur_client()
   new_links = {}
-  for key, link in img_cache:
+  with open('images.txt') as f:
+    images = json.loads(f.read())
+  rate_limited = False
+  for key, link in images.items():
     try:
-      res = client.upload_from_url(link)
-      new_links[key] = res['link']
+      if 'imgur' in link or rate_limited:
+        new_links[key] = link
+      else:
+        res = client.upload_from_url(link)
+        print 'uploaded %s to %s' % (key, res['link'])
+        new_links[key] = res['link']
+    except ImgurClientRateLimitError as e:
+      rate_limited = True
+      print 'got rate limited'
+      new_links[key] = link
     except:
       new_links[key] = link
+  with open('images2.txt', 'w') as f:
+    f.write(json.dumps(new_links))
   return new_links
 
 # Old functions written in JS, originally was going to make the requests on the fly, but decided
