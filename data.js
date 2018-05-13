@@ -2041,7 +2041,7 @@ var img_cache = JSON.parse(`
   "October 28,National Chocolate day": "https://i.imgur.com/m5z29xC.jpg",
   "April 17,Malbec World Day": "https://i.imgur.com/bImYwkK.jpg",
   "March 8,International Women's Collaboration Brew Day": "https://i.imgur.com/RA8g1dS.jpg",
-  "August 29,More Herbs,Less Salt Day": "https://i.imgur.com/WQMsS9G.jpg",
+  "August 29,More Herbs, Less Salt Day": "https://i.imgur.com/WQMsS9G.jpg",
   "July 14,National Grand Marnier Day": "https://i.imgur.com/8UvDwY7.png",
   "August 13,National Filet Mignon Day": "https://i.imgur.com/9Fs2vLh.png",
   "November 13,National Indian Pudding Day": "https://i.imgur.com/9sFk1l3.jpg",
