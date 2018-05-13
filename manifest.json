@@ -3,7 +3,7 @@
 
   "name": "Food Days",
   "description": "A new tab page for when it's a food day!",
-  "version": "1.12",
+  "version": "1.13",
 
   "content_security_policy": "script-src 'self' 'unsafe-eval' https://ssl.google-analytics.com; object-src 'self'",
 
