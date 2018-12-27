@@ -1,8 +1,12 @@
 #!/usr/bin/python
 import json
+import os
 
-DATA_FILE = '../data.js'
-SECRETS_FILE = '../.secrets'
+# Assume root path is 2 levels above this file
+SCRIPTS = os.path.abspath(os.path.dirname(__file__))
+ROOT = os.path.abspath(os.path.dirname(SCRIPTS))
+DATA_FILE = os.path.join(ROOT, 'data.js')
+SECRETS_FILE = os.path.join(ROOT, '.secrets')
 
 def read_data():
   res = []

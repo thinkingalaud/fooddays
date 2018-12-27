@@ -1,4 +1,5 @@
 #!/usr/bin/python
+import json
 import re
 import requests
 from collections import defaultdict
@@ -38,7 +39,7 @@ class FoodDaysHTMLParser(HTMLParser):
       self.category = False
     if tag == 'tr' and len(self.headers) > 0 and len(self.row) > 1:
       row = dict(zip(self.headers, self.row[:-1]))
-      self.result[row['Date']].append([row['Event'], self.category])
+      self.result[row['Date'].strip()].append([row['Event'].strip(), self.category])
     if tag == 'td':
       self.row.append("")
     if tag in {'table', 'tr', 'th', 'td'}:
@@ -48,8 +49,9 @@ class FoodDaysHTMLParser(HTMLParser):
     if self.h2 and self.category is None and data not in FoodDaysHTMLParser.BLACKLIST_CATEGORIES:
       self.category = data
     if self.table and self.tr and self.th:
-      self.headers.append(data)
+      self.headers.append(data.strip())
     if self.table and self.tr and self.td:
+      print data
       self.row[-1] += re.sub('\[.*\]', '', data.replace('\n', ' '))
 
 def parse_wiki_page():
@@ -57,3 +59,9 @@ def parse_wiki_page():
   parser = FoodDaysHTMLParser()
   parser.feed(wiki_res.text)
   return parser.result
+
+def generate_cache():
+  result = parse_wiki_page()
+  print json.dumps(result, sort_keys=True, indent=2, separators=(',', ': '))
+
+generate_cache()
