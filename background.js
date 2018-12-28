@@ -19,6 +19,7 @@ var UNEVENTFULS = [
   ["images/dill.png", "There's no food day today - I hope it's not too big of a dill!"]
 ];
 
+// Downloaded from https://www.iconfinder.com/iconsets/world-flag-icons
 var COUNTRIES = {
   "Global": "images/flags/Global.png",
   "Africa": "images/flags/Flag_of_South_Africa.png",
@@ -32,7 +33,8 @@ var COUNTRIES = {
   "Japan": "images/flags/Flag_of_Japan.png",
   "Luxembourg": "images/flags/Flag_of_Luxembourg.png",
   "Netherlands": "images/flags/Flag_of_Netherlands.png",
-  "South Korea": "images/flags/Flag_of_South_Korea.png",
+  "New Zealand": "images/flags/Flag_of_New_Zealand.png",
+  "Korea": "images/flags/Flag_of_South_Korea.png",
   "Sweden": "images/flags/Flag_of_Sweden.png",
   "Turkmenistan": "images/flags/Flag_of_Turkmenistan.png",
   "United Kingdom": "images/flags/Flag_of_United_Kingdom.png",
