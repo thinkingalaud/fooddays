@@ -1,4 +1,6 @@
 #!/usr/bin/python
+import json
+import re
 from imgurpython import ImgurClient
 from imgurpython.helpers.error import ImgurClientRateLimitError
 
@@ -8,7 +10,7 @@ def get_imgur_client():
   # visit https://api.imgur.com/oauth2/authorize?client_id=77fbcca7c596528&response_type=token
   # to regenerate access token and refresh token and save in the secrets file
   secrets = load_secrets()
-  client = ImgurClient(secrets['IMGUR_CLIENT_ID'], secrets['IMGUR_CLIENT_SECRET'], secrets['IMGUR    _ACCESS_TOKEN'], secrets['IMGUR_REFRESH_TOKEN'])
+  client = ImgurClient(secrets['IMGUR_CLIENT_ID'], secrets['IMGUR_CLIENT_SECRET'], secrets['IMGUR_ACCESS_TOKEN'], secrets['IMGUR_REFRESH_TOKEN'])
   return client
 
 def upload_to_imgur():
@@ -32,6 +34,16 @@ def upload_to_imgur():
     except:
       new_links[key] = link
   with open('images2.txt', 'w') as f:
-    f.write(json.dumps(new_links))
+    f.write(json.dumps(new_links, indent=2, sort_keys=True))
   return new_links
 
+def remove_from_imgur():
+  client = get_imgur_client()
+  with open('unused.txt') as f:
+    images = json.loads(f.read())
+  regex = r'https://i.imgur.com/([0-9a-zA-Z]*).'
+  for key, link in images.items():
+    print link
+    image_id = re.match(regex, link).group(1)
+    print 'removing %s' % image_id
+    client.delete_image(image_id)
