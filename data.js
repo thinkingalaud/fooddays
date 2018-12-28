@@ -438,7 +438,7 @@ var cache = JSON.parse(`
   ],
   "February 15": [
     [
-      "National \"I Want Butterscotch\" Day",
+      "National 'I Want Butterscotch' Day",
       "United States"
     ]
   ],
@@ -2054,7 +2054,7 @@ var img_cache = JSON.parse(`
   "December 8,National Brownie Day": "https://i.imgur.com/0AZwO3A.jpg",
   "December 8,National Concha Day": "https://i.imgur.com/Idocq4A.jpg",
   "December 9,National Pastry Day": "https://i.imgur.com/lajKrv0.jpg",
-  "February 15,National \"I Want Butterscotch\" Day": "https://i.imgur.com/Jf94wMZ.jpg",
+  "February 15,National 'I Want Butterscotch' Day": "https://i.imgur.com/Jf94wMZ.jpg",
   "February 2,National Tater Tot Day": "https://i.imgur.com/UxBumD1.jpg",
   "February 22,National Margarita Day": "https://i.imgur.com/IDNhYGR.jpg",
   "February 23,Jamaican Patty Day": "https://i.imgur.com/uNDebPr.jpg",

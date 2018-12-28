@@ -51,7 +51,7 @@ class FoodDaysHTMLParser(HTMLParser):
     if self.table and self.tr and self.th:
       self.headers.append(data.strip())
     if self.table and self.tr and self.td:
-      self.row[-1] += re.sub('\[.*\]', '', data.replace('\n', ' '))
+      self.row[-1] += re.sub('\[.*\]', '', data.replace('\n', ' ').replace('"', '\'')
 
 def parse_wiki_page():
   wiki_res = requests.get(DATA_URL)
