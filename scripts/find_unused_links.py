@@ -17,5 +17,5 @@ def without_unused_links():
     del img_cache[key]
   return img_cache
 
-print json.dumps(find_unused_links(), indent=2, sort_keys=True)
+print(json.dumps(find_unused_links(), indent=2, sort_keys=True))
 

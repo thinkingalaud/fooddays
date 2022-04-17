@@ -3,7 +3,7 @@ import json
 import re
 import requests
 from collections import defaultdict
-from HTMLParser import HTMLParser
+from html.parser import HTMLParser
 
 DATA_URL = "https://en.wikipedia.org/wiki/List_of_food_days"
 
@@ -47,11 +47,13 @@ class FoodDaysHTMLParser(HTMLParser):
 
   def handle_data(self, data):
     if self.h2 and self.category is None and data not in FoodDaysHTMLParser.BLACKLIST_CATEGORIES:
+      if data == 'Global or International':
+        data = 'Global'
       self.category = data
     if self.table and self.tr and self.th:
       self.headers.append(data.strip())
     if self.table and self.tr and self.td:
-      self.row[-1] += re.sub('\[.*\]', '', data.replace('\n', ' ').replace('"', '\'')
+      self.row[-1] += re.sub('\[.*\]', '', data.replace('\n', ' ').replace('"', '\''))
 
 def parse_wiki_page():
   wiki_res = requests.get(DATA_URL)
@@ -61,6 +63,7 @@ def parse_wiki_page():
 
 def generate_cache():
   result = parse_wiki_page()
-  print json.dumps(result, sort_keys=True, indent=2, separators=(',', ': '))
+  print(json.dumps(result, sort_keys=True, indent=2, separators=(',', ': ')))
 
 generate_cache()
+

@@ -25,11 +25,11 @@ def upload_to_imgur():
         new_links[key] = link
       else:
         res = client.upload_from_url(link)
-        print 'uploaded %s to %s' % (key, res['link'])
+        print('uploaded %s to %s' % (key, res['link']))
         new_links[key] = res['link']
     except ImgurClientRateLimitError as e:
       rate_limited = True
-      print 'got rate limited'
+      print('got rate limited')
       new_links[key] = link
     except:
       new_links[key] = link
@@ -43,7 +43,7 @@ def remove_from_imgur():
     images = json.loads(f.read())
   regex = r'https://i.imgur.com/([0-9a-zA-Z]*).'
   for key, link in images.items():
-    print link
+    print(link)
     image_id = re.match(regex, link).group(1)
-    print 'removing %s' % image_id
+    print('removing %s' % image_id)
     client.delete_image(image_id)

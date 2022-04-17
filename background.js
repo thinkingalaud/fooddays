@@ -132,6 +132,7 @@ function getSynonyms(date) {
   var res = [];
   res.push(MONTHS[date.getMonth()] + ' ' + date.getDate());
   res.push(WEEKNUM[Math.floor((date.getDate() - 1) / 7)] + ' ' + WEEKDAYS_FULL[date.getDay()] + ' of ' + MONTHS[date.getMonth()]);
+  res.push(WEEKNUM[Math.floor((date.getDate() - 1) / 7)] + ' ' + WEEKDAYS_FULL[date.getDay()] + ' in ' + MONTHS[date.getMonth()]);
   if ((date.getDate() + 7) > DAYS_IN_MONTH[date.getMonth()]) {
     res.push('Last ' + WEEKDAYS_FULL[date.getDay()] + ' of ' + MONTHS[date.getMonth()]);
   }
