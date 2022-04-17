@@ -1,6 +1,3 @@
-var DEFAULT_BACKGROUND_COLOR = '#FFFFFF';
-var DEFAULT_FONT_COLOR = '#000000';
-
 var MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 var WEEKDAYS = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 var WEEKDAYS_FULL = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
