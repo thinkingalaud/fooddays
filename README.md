@@ -5,7 +5,7 @@ New tab page for Chrome that shows the current food day in the US
 
 ## Dependencies
 * jquery 1.7.0
-** http://code.jquery.com/jquery-1.7.min.js
+  * http://code.jquery.com/jquery-1.7.min.js
 * slick 1.6.0
   * https://cdnjs.com/libraries/slick-carousel/1.6.0
     * ajax-loader.gif
