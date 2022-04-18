@@ -50,3 +50,4 @@ def remove_from_imgur():
     client.delete_image(image_id)
 
 #upload_to_imgur()
+#remove_from_imgur()
