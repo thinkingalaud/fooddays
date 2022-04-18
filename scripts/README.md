@@ -7,4 +7,4 @@ Note: make sure that the countries listed all have flags in `images/flags/`
 `generate_picture_table.py` will create a local html file that you can open to visually verify the images and make sure they are appropriate.
 
 # Uploading images
-Using direct links to images will lead to link rot, so `upload_imgur.py` will take images in `images.txt` and upload them to imgur, writing the new images to `images2.txt`
+Using direct links to images will lead to link rot, so `upload_imgur.py` will take images in `images.txt` (copy/paste json from `data.js` - `img_cache`) and upload them to imgur, writing the new images to `images2.txt`. if you get rate limited, wait a bit, then try again after moving `images2.txt` to `images.txt`

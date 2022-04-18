@@ -9,6 +9,7 @@ from shared import load_secrets
 def get_imgur_client():
   # visit https://api.imgur.com/oauth2/authorize?client_id=77fbcca7c596528&response_type=token
   # to regenerate access token and refresh token and save in the secrets file
+  # application is registered under fooddayextension@gmail.com, can regenerate secret under Applications
   secrets = load_secrets()
   client = ImgurClient(secrets['IMGUR_CLIENT_ID'], secrets['IMGUR_CLIENT_SECRET'], secrets['IMGUR_ACCESS_TOKEN'], secrets['IMGUR_REFRESH_TOKEN'])
   return client
@@ -47,3 +48,5 @@ def remove_from_imgur():
     image_id = re.match(regex, link).group(1)
     print('removing %s' % image_id)
     client.delete_image(image_id)
+
+#upload_to_imgur()
