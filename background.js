@@ -23,15 +23,18 @@ var COUNTRIES = {
   "Australia": "images/flags/Flag_of_Australia.png",
   "Brazil": "images/flags/Flag_of_Brazil.png",
   "Canada": "images/flags/Flag_of_Canada.png",
+  "Finland": "images/flags/Flag_of_Finland.png",
+  "Georgia": "images/flags/Flag_of_Georgia.png",
   "Germany": "images/flags/Flag_of_Germany.png",
   "Iceland": "images/flags/Flag_of_Iceland.png",
   "India": "images/flags/Flag_of_India.png",
   "Italy": "images/flags/Flag_of_Italy.png",
   "Japan": "images/flags/Flag_of_Japan.png",
+  "Korea": "images/flags/Flag_of_South_Korea.png",
   "Luxembourg": "images/flags/Flag_of_Luxembourg.png",
   "Netherlands": "images/flags/Flag_of_Netherlands.png",
   "New Zealand": "images/flags/Flag_of_New_Zealand.png",
-  "Korea": "images/flags/Flag_of_South_Korea.png",
+  "Spain": "images/flags/Flag_of_Spain.png",
   "Sweden": "images/flags/Flag_of_Sweden.png",
   "Turkmenistan": "images/flags/Flag_of_Turkmenistan.png",
   "United Kingdom": "images/flags/Flag_of_United_Kingdom.png",
@@ -132,6 +135,7 @@ function getSynonyms(date) {
   res.push(WEEKNUM[Math.floor((date.getDate() - 1) / 7)] + ' ' + WEEKDAYS_FULL[date.getDay()] + ' in ' + MONTHS[date.getMonth()]);
   if ((date.getDate() + 7) > DAYS_IN_MONTH[date.getMonth()]) {
     res.push('Last ' + WEEKDAYS_FULL[date.getDay()] + ' of ' + MONTHS[date.getMonth()]);
+    res.push('Last ' + WEEKDAYS_FULL[date.getDay()] + ' in ' + MONTHS[date.getMonth()]);
   }
 
   return res;

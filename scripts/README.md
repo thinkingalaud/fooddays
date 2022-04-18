@@ -1,5 +1,6 @@
 # Updating list of food days
 `parse_wiki_page.py` parses the wiki page and prints JSON formatted results. Diff them with `data.js` to see what changed and verify things look fine. Then overwrite the cache variable in `data.js` with the results.
+Note: make sure that the countries listed all have flags in `images/flags/`
 
 # Generating images of food days
 `generate_image_links.py` will read `data.js` and find which food days are missing images. The ones that are missing will hit Google image search and grab the first image. The new set of images will be printed out - overwrite the `img_cache` variable in `data.js`.
