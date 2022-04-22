@@ -3,9 +3,6 @@
   "name": "Food Days",
   "description": "A new tab page for when it's a food day!",
   "version": "1.15",
-  "permissions": [
-      "storage"
-  ],
   "icons": {
     "128": "images/icon.png"
   },
