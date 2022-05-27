@@ -1,8 +1,3 @@
-// Google Analytics code
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-98193595-1']);
-_gaq.push(['_trackPageview', document.location.pathname]);
-
 function load(date) {
   getInfo(date, function(results) {
     for (var i = 0; i < results.length; i++) {

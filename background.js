@@ -142,7 +142,6 @@ function getSynonyms(date) {
 }
 
 function getInfo(today, callback) {
-  console.log(today);
   data = [];
   for (var i = (-(totalElements/2) >> 0); i < ((totalElements/2) >> 0) + 1; i++) {
     var day = new Date(today.getTime());
@@ -159,12 +158,9 @@ function getInfo(today, callback) {
 
     for (var j = 0; j < day_strs.length; j++) {
       var day_str = day_strs[j];
-      console.log(day_str);
-      console.log(day_str in cache);
       if (day_str in cache) {
         days = cache[day_str];
         for (var k = 0; k < days.length; k++) {
-          console.log([day_str, days[k]]);
           d['days'].push(days[k][0]);
           d['countries'].push(days[k][1]);
           d['imgs'].push(img_cache[[day_str, days[k][0]]]);

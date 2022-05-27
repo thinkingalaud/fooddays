@@ -1,8 +1,3 @@
-// Google Analytics code
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-98193595-1']);
-_gaq.push(['_trackPageview', document.location.pathname]);
-
 function refresh(date, forward) {
   document.currentDate = date;
   getInfo(date, function(results) {
@@ -19,10 +14,8 @@ function refresh(date, forward) {
       var found = document.getElementById(element_id);
 
       if (found) {
-        // console.log('Found ' + element_id);
       } else {
         // Add new slides
-        console.log('Adding ' + full_date);
         // If we insert at the beginning all slides get shifted to the right but we need to make sure the current slide doesn't change
         if (!forward) {
           $('#weekview')[0].slick.currentSlide += 1;
@@ -89,14 +82,21 @@ $(document).ready(function() {
 
   // Add Google Analytics tracking for buttons
   $('#weekview').on('click', '.slick-arrow.slick-prev', function() {
-    _gaq.push(['_trackEvent', 'prevarrow', 'clicked']);
+    mixpanel.track('Click', {
+      'target': 'prevarrow',
+    });
   });
   $('#weekview').on('click', '.slick-arrow.slick-next', function() {
-    _gaq.push(['_trackEvent', 'nextarrow', 'clicked']);
+    mixpanel.track('Click', {
+      'target': 'nextarrow',
+    });
   });
   // Add Google Analytics tracking for dates
-  $('#weekview').on('click', 'div.weekday-bubble', function() {
-    _gaq.push(['_trackEvent', 'date', 'clicked']);
+  $('#weekview').on('click', 'div.weekday-bubble', function(event) {
+    mixpanel.track('Click', {
+      'target': 'date',
+      'date': $(this).attr('id'),
+    });
   })
 });
 
