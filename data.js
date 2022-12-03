@@ -190,10 +190,6 @@ var cache = JSON.parse(`
     [
       "National Sponge Cake Day",
       "United States"
-    ],
-    [
-      "National Cuban Sandwich Day",
-      "United States"
     ]
   ],
   "August 24": [
@@ -261,10 +257,6 @@ var cache = JSON.parse(`
     ]
   ],
   "August 3": [
-    [
-      "D\u00eda Nacional del Nabo",
-      "Spain"
-    ],
     [
       "National Watermelon Day",
       "United States"
@@ -418,10 +410,6 @@ var cache = JSON.parse(`
   ],
   "December 9": [
     [
-      "Mariscada Day",
-      "Spain"
-    ],
-    [
       "National Pastry Day",
       "United States"
     ]
@@ -474,9 +462,7 @@ var cache = JSON.parse(`
     [
       "World Nutella Day",
       "Global"
-    ]
-  ],
-  "February 7": [
+    ],
     [
       "National Pork Rind Appreciation Day",
       "United States"
@@ -1088,10 +1074,6 @@ var cache = JSON.parse(`
   ],
   "March 10": [
     [
-      "International Lime Day",
-      "Global"
-    ],
-    [
       "National Blueberry Popover Day",
       "United States"
     ]
@@ -1206,9 +1188,7 @@ var cache = JSON.parse(`
     [
       "National Ice Cream Cake Day",
       "United States"
-    ]
-  ],
-  "May 11": [
+    ],
     [
       "National Chocolate Fish Day",
       "New Zealand"
@@ -1239,10 +1219,6 @@ var cache = JSON.parse(`
     ]
   ],
   "May 23": [
-    [
-      "Common mealsharing day. M\u00e5ltidens gemenskapsdag",
-      "Finland"
-    ],
     [
       "National Taffy Day",
       "United States"
@@ -1416,7 +1392,15 @@ var cache = JSON.parse(`
   ],
   "November 2": [
     [
+      "World Mankousheh Day",
+      "Global"
+    ],
+    [
       "National Deviled Egg Day",
+      "United States"
+    ],
+    [
+      "National Pico de gallo Day",
       "United States"
     ]
   ],
@@ -1483,10 +1467,6 @@ var cache = JSON.parse(`
     ]
   ],
   "November 3": [
-    [
-      "National Bison Day",
-      "United States"
-    ],
     [
       "National Sandwich Day",
       "United States"
@@ -1692,10 +1672,6 @@ var cache = JSON.parse(`
   ],
   "October 9": [
     [
-      "Finlandssvenska matkulturdagen",
-      "Finland"
-    ],
-    [
       "International Beer and Pizza Day",
       "United States"
     ]
@@ -1766,7 +1742,7 @@ var cache = JSON.parse(`
       "United States"
     ],
     [
-      "National Chocolate Day",
+      "International Chocolate Day",
       "United States"
     ]
   ],
@@ -1938,10 +1914,6 @@ var cache = JSON.parse(`
   ],
   "September 4": [
     [
-      "Finnish food day Finl\u00e4ndska matens dag",
-      "Finland"
-    ],
-    [
       "National Macadamia Nut Day",
       "United States"
     ]
@@ -2048,7 +2020,6 @@ var img_cache = JSON.parse(`
   "August 21,National Spumoni Day": "https://i.imgur.com/LXwcUlh.jpg",
   "August 22,National Eat A Peach Day": "https://i.imgur.com/MMww58C.jpg",
   "August 22,National Pecan Torte Day": "https://i.imgur.com/BzAkRix.jpg",
-  "August 23,National Cuban Sandwich Day": "https://i.imgur.com/7kD9N0v.jpg",
   "August 23,National Sponge Cake Day": "https://i.imgur.com/X5YtaFU.png",
   "August 24,National Peach Pie Day": "https://i.imgur.com/2z0GBSd.jpg",
   "August 24,National Waffle Day": "https://i.imgur.com/9J3oh1P.png",
@@ -2063,7 +2034,6 @@ var img_cache = JSON.parse(`
   "August 29,More Herbs, Less Salt Day": "https://i.imgur.com/WQMsS9G.jpg",
   "August 29,National Chop Suey Day": "https://i.imgur.com/QqSloD6.png",
   "August 29,National Lemon Juice Day": "https://i.imgur.com/jOdKnql.jpg",
-  "August 3,D\u00eda Nacional del Nabo": "https://i.imgur.com/NXl4mBZ.jpeg",
   "August 3,National Watermelon Day": "https://i.imgur.com/UZZ3vkI.png",
   "August 3,National White Wine Day": "https://i.imgur.com/gnesFVI.jpg",
   "August 30,National Toasted Marshmallow Day": "https://i.imgur.com/zKfV2YE.png",
@@ -2091,7 +2061,6 @@ var img_cache = JSON.parse(`
   "December 4,National Cookie Day": "https://i.imgur.com/h6ThdZ5.jpg",
   "December 8,National Brownie Day": "https://i.imgur.com/0AZwO3A.jpg",
   "December 8,National Concha Day": "https://i.imgur.com/Idocq4A.jpg",
-  "December 9,Mariscada Day": "https://i.imgur.com/wSP5IdM.jpeg",
   "December 9,National Pastry Day": "https://i.imgur.com/lajKrv0.jpg",
   "February 15,National 'I Want Butterscotch' Day": "https://i.imgur.com/Jf94wMZ.jpg",
   "February 2,Chandeleur (Candlemas)": "https://i.imgur.com/p6kv74W.jpeg",
@@ -2102,7 +2071,7 @@ var img_cache = JSON.parse(`
   "February 27,National Khachapuri Day": "https://i.imgur.com/l1e3G5U.jpeg",
   "February 29,National Frog Legs Day (celebration for Leap Day)": "https://i.imgur.com/GWO0mHZ.png",
   "February 5,World Nutella Day": "https://i.imgur.com/fCl0cBh.jpg",
-  "February 7,National Pork Rind Appreciation Day": "https://i.imgur.com/WlsxG2q.png",
+  "February 5,National Pork Rind Appreciation Day": "https://i.imgur.com/WlsxG2q.png",
   "February 9,National Bagel Day": "https://i.imgur.com/VgEjCgl.png",
   "February 9,National Pizza Day (at least five slices)": "https://i.imgur.com/MIicuxc.jpg",
   "First Friday of August,International Beer Day": "https://i.imgur.com/AEehfOQ.jpg",
@@ -2215,7 +2184,6 @@ var img_cache = JSON.parse(`
   "Last Thursday of June,National Bomb Pop Day": "https://i.imgur.com/W4XVlmA.png",
   "March 1,Beer Day": "https://i.imgur.com/QueZLIZ.jpg",
   "March 1,National Peanut Butter Lover's Day": "https://i.imgur.com/oePK69H.png",
-  "March 10,International Lime Day": "https://i.imgur.com/kVbpYcX.jpeg",
   "March 10,National Blueberry Popover Day": "https://i.imgur.com/DlqwpOu.jpg",
   "March 11,Johnny Appleseed Day": "https://i.imgur.com/gcIySgh.jpg",
   "March 11,Oatmeal Nut Waffles Day": "https://i.imgur.com/9IDadcb.jpg",
@@ -2237,12 +2205,11 @@ var img_cache = JSON.parse(`
   "March 9,National Crabmeat Day": "https://i.imgur.com/QPa6rFN.jpg",
   "March 9,National Meatball Day": "https://i.imgur.com/podnic0.jpg",
   "May 10,National Ice Cream Cake Day": "https://i.imgur.com/iuotzmc.jpeg",
-  "May 11,National Chocolate Fish Day": "https://i.imgur.com/8lkoP6K.jpg",
+  "May 10,National Chocolate Fish Day": "https://i.imgur.com/8lkoP6K.jpg",
   "May 13,International Hummus Day": "https://i.imgur.com/c9JSzQZ.jpg",
   "May 16,National BBQ Day": "https://i.imgur.com/HstFobt.jpg",
   "May 17,National Walnut Day": "https://i.imgur.com/fOII4wt.png",
   "May 18,National Marshmallow Day": "https://i.imgur.com/wWlqHfQ.jpg",
-  "May 23,Common mealsharing day. M\u00e5ltidens gemenskapsdag": "https://i.imgur.com/AwVIIgw.jpeg",
   "May 23,National Taffy Day": "https://i.imgur.com/dDo4Uiz.png",
   "May 24,National Escargot Day": "https://i.imgur.com/Er5CoVK.png",
   "May 25,National Wine Day": "https://i.imgur.com/kO20Acq.jpg",
@@ -2277,6 +2244,8 @@ var img_cache = JSON.parse(`
   "November 19,Carbonated Beverage with Caffeine Day": "https://i.imgur.com/Z6w2Dcb.jpg",
   "November 19,National Soup Day": "https://i.imgur.com/HxKMCvn.jpg",
   "November 2,National Deviled Egg Day": "https://i.imgur.com/JpKUEPW.jpg",
+  "November 2,World Mankousheh Day": "https://i.imgur.com/M14fvHR.jpeg",
+  "November 2,National Pico de gallo Day": "https://i.imgur.com/OBAA43N.jpeg",
   "November 20,National Peanut Butter Fudge Day": "https://i.imgur.com/CCLdU9R.jpg",
   "November 21,National Stuffing Day": "https://i.imgur.com/Lz62G1o.jpg",
   "November 23,National Cashew Day": "https://i.imgur.com/01rm8Uq.jpg",
@@ -2289,7 +2258,6 @@ var img_cache = JSON.parse(`
   "November 29,National Chocolates Day": "https://i.imgur.com/ohjlCoY.jpg",
   "November 29,National Lemon Cream Pie Day": "https://i.imgur.com/k5MYG1R.jpg",
   "November 29,Throw Out Your Leftovers Day": "https://i.imgur.com/yOABKI3.jpg",
-  "November 3,National Bison Day": "https://i.imgur.com/ldOeviq.jpg",
   "November 3,National Sandwich Day": "https://i.imgur.com/FL4DOLZ.jpg",
   "November 30,National Mousse Day": "https://i.imgur.com/SEJym8I.jpg",
   "November 4,National Candy Day": "https://i.imgur.com/lmjC0Zl.jpg",
@@ -2328,7 +2296,6 @@ var img_cache = JSON.parse(`
   "October 6,National Noodle Day": "https://i.imgur.com/DWOEXSs.jpg",
   "October 8,National Fluffernutter Day": "https://i.imgur.com/SmPxoTv.jpg",
   "October 8,National Pierogi Day": "https://i.imgur.com/StgEvn5.jpeg",
-  "October 9,Finlandssvenska matkulturdagen": "https://i.imgur.com/h9cuDWh.jpeg",
   "October 9,International Beer and Pizza Day": "https://i.imgur.com/4MM8M9e.jpeg",
   "Saturday before Labor Day,International Bacon Day": "https://i.imgur.com/9nzMpDh.png",
   "Saturday of Civic Holiday weekend (August),Food Day Canada": "https://i.imgur.com/FlIuDFx.jpg",
@@ -2340,7 +2307,7 @@ var img_cache = JSON.parse(`
   "September 10,National TV Dinner Day": "https://i.imgur.com/n4v21BL.jpg",
   "September 11,National Hot Cross Bun Day": "https://i.imgur.com/ufzZtYO.jpg",
   "September 12,National Chocolate Milkshake Day": "https://i.imgur.com/qwVcVng.jpg",
-  "September 13,National Chocolate Day": "https://i.imgur.com/P1lKKSY.jpg",
+  "September 13,International Chocolate Day": "https://i.imgur.com/P1lKKSY.jpg",
   "September 13,National Peanut Day": "https://i.imgur.com/fGJWk5M.jpg",
   "September 14,National Cream-Filled Donut Day": "https://i.imgur.com/UQY92gC.jpg",
   "September 14,National Eat a Hoagie Day": "https://i.imgur.com/3oRMERR.jpg",
@@ -2375,7 +2342,6 @@ var img_cache = JSON.parse(`
   "September 29,National Coffee Day": "https://i.imgur.com/vwanuLw.jpg",
   "September 3,National Welsh Rarebit Day": "https://i.imgur.com/ilPlDKw.jpg",
   "September 30,National Hot Mulled Cider Day": "https://i.imgur.com/yonL50R.jpg",
-  "September 4,Finnish food day Finl\u00e4ndska matens dag": "https://i.imgur.com/9oZjlUd.jpeg",
   "September 4,National Macadamia Nut Day": "https://i.imgur.com/KEuwEff.jpg",
   "September 5,National Cheese Pizza Day": "https://i.imgur.com/jxzuj10.jpg",
   "September 6,National Coffee Ice Cream Day": "https://i.imgur.com/wS01rre.jpg",
