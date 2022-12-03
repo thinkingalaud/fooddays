@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Food Days",
   "description": "A new tab page for when it's a food day!",
-  "version": "1.16",
+  "version": "1.17",
   "icons": {
     "128": "images/icon.png"
   },
