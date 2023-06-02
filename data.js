@@ -18,6 +18,12 @@ var cache = JSON.parse(`
       "United States"
     ]
   ],
+  "April 14": [
+    [
+      "Oreo Cookie Cheesecake Day",
+      "United States"
+    ]
+  ],
   "April 17": [
     [
       "Malbec World Day",
@@ -326,10 +332,6 @@ var cache = JSON.parse(`
   ],
   "December 15": [
     [
-      "International Tea Day",
-      "Global"
-    ],
-    [
       "National Cupcake Day",
       "United States"
     ]
@@ -462,9 +464,17 @@ var cache = JSON.parse(`
     [
       "World Nutella Day",
       "Global"
-    ],
+    ]
+  ],
+  "February 7": [
     [
       "National Pork Rind Appreciation Day",
+      "United States"
+    ]
+  ],
+  "February 8": [
+    [
+      "Chocolate Cheesecake Day",
       "United States"
     ]
   ],
@@ -598,7 +608,7 @@ var cache = JSON.parse(`
   ],
   "January 27": [
     [
-      "National Chocolate Cake Day",
+      "Chocolate Cake Day",
       "United States"
     ]
   ],
@@ -1136,6 +1146,10 @@ var cache = JSON.parse(`
   ],
   "March 3": [
     [
+      "World Dosa Day",
+      "Global"
+    ],
+    [
       "National Canadian Bacon Day",
       "United States"
     ]
@@ -1186,12 +1200,12 @@ var cache = JSON.parse(`
   ],
   "May 10": [
     [
-      "National Ice Cream Cake Day",
-      "United States"
-    ],
-    [
       "National Chocolate Fish Day",
       "New Zealand"
+    ],
+    [
+      "National Ice Cream Cake Day",
+      "United States"
     ]
   ],
   "May 13": [
@@ -1216,6 +1230,12 @@ var cache = JSON.parse(`
     [
       "National Marshmallow Day",
       "Australia"
+    ]
+  ],
+  "May 21": [
+    [
+      "International Tea Day",
+      "Global"
     ]
   ],
   "May 23": [
@@ -1453,6 +1473,10 @@ var cache = JSON.parse(`
     ]
   ],
   "November 29": [
+    [
+      "Good Meat Day",
+      "Japan"
+    ],
     [
       "Throw Out Your Leftovers Day",
       "United States"
@@ -1978,7 +2002,7 @@ var cache = JSON.parse(`
       "Iceland"
     ]
   ],
-  "Varies; 2017 date is February 8": [
+  "Varies; 2023 date is February 9": [
     [
       "Food Freedom Day",
       "Canada"
@@ -1991,6 +2015,7 @@ var img_cache = JSON.parse(`
   "47 days before Easter,Shrove Tuesday (Pancake Day)": "https://i.imgur.com/yTaVfvw.jpg",
   "April 11,National Cheese Fondue Day": "https://i.imgur.com/6BfYeCl.jpg",
   "April 12,National Grilled Cheese Sandwich Day": "https://i.imgur.com/0RASSen.jpg",
+  "April 14,Oreo Cookie Cheesecake Day": "https://i.imgur.com/3e6JoS6.jpeg",
   "April 17,Malbec World Day": "https://i.imgur.com/bImYwkK.jpg",
   "April 17,National Cheeseball Day": "https://i.imgur.com/gyN9liH.jpg",
   "April 17,National Espresso Day (Espresso Italiano Day)": "https://i.imgur.com/BCyIHO6.jpg",
@@ -2046,7 +2071,6 @@ var img_cache = JSON.parse(`
   "December 11,National Have a Bagel Day": "https://i.imgur.com/sGgJFOz.png",
   "December 11,National Noodle Ring Day": "https://i.imgur.com/eDbRi0k.jpg",
   "December 13,National Hot Cocoa Day": "https://i.imgur.com/957bZgA.jpg",
-  "December 15,International Tea Day": "https://i.imgur.com/XRnqxfe.jpg",
   "December 15,National Cupcake Day": "https://i.imgur.com/xmmpv9O.jpg",
   "December 16,Chocolate Covered Day": "https://i.imgur.com/PxYXY81.jpg",
   "December 16,National Green Chili Day": "https://i.imgur.com/runtPKs.jpg",
@@ -2071,7 +2095,8 @@ var img_cache = JSON.parse(`
   "February 27,National Khachapuri Day": "https://i.imgur.com/l1e3G5U.jpeg",
   "February 29,National Frog Legs Day (celebration for Leap Day)": "https://i.imgur.com/GWO0mHZ.png",
   "February 5,World Nutella Day": "https://i.imgur.com/fCl0cBh.jpg",
-  "February 5,National Pork Rind Appreciation Day": "https://i.imgur.com/WlsxG2q.png",
+  "February 7,National Pork Rind Appreciation Day": "https://i.imgur.com/WlsxG2q.png",
+  "February 8,Chocolate Cheesecake Day": "https://i.imgur.com/Y0s8fxR.jpeg",
   "February 9,National Bagel Day": "https://i.imgur.com/VgEjCgl.png",
   "February 9,National Pizza Day (at least five slices)": "https://i.imgur.com/MIicuxc.jpg",
   "First Friday of August,International Beer Day": "https://i.imgur.com/AEehfOQ.jpg",
@@ -2094,7 +2119,7 @@ var img_cache = JSON.parse(`
   "January 23,National Pie Day": "https://i.imgur.com/ECVW73J.jpg",
   "January 24,National Peanut Butter Day": "https://i.imgur.com/ZCEbpq2.png",
   "January 26,National Peanut Brittle Day": "https://i.imgur.com/roBns9Z.png",
-  "January 27,National Chocolate Cake Day": "https://i.imgur.com/gBbWyaO.png",
+  "January 27,Chocolate Cake Day": "https://i.imgur.com/gBbWyaO.png",
   "January 3,National Chocolate Covered Cherry Day": "https://i.imgur.com/8U1OzRU.jpg",
   "January 5,National Whipped Cream Day": "https://i.imgur.com/2Qk8bOy.jpg",
   "January 5,Sausage Day": "https://i.imgur.com/2DVbJpa.jpg",
@@ -2196,6 +2221,7 @@ var img_cache = JSON.parse(`
   "March 25,National Waffle Day (V\u00e5ffeldagen)": "https://i.imgur.com/Ek9Uhjq.jpg",
   "March 27,International Whiskey Day": "https://i.imgur.com/yJBA3It.jpg",
   "March 3,National Canadian Bacon Day": "https://i.imgur.com/KClgV9v.jpg",
+  "March 3,World Dosa Day": "https://i.imgur.com/b0uNT0H.jpeg",
   "March 30,World Idli Day": "https://i.imgur.com/4RkZrwR.jpg",
   "March 31,National Clams on the Half Shell Day": "https://i.imgur.com/dPM2CuN.jpg",
   "March 5,National Cheez Doodle Day": "https://i.imgur.com/JWlwuiS.jpg",
@@ -2204,12 +2230,13 @@ var img_cache = JSON.parse(`
   "March 8,National Peanut Cluster Day": "https://i.imgur.com/K43RxsE.jpg",
   "March 9,National Crabmeat Day": "https://i.imgur.com/QPa6rFN.jpg",
   "March 9,National Meatball Day": "https://i.imgur.com/podnic0.jpg",
-  "May 10,National Ice Cream Cake Day": "https://i.imgur.com/iuotzmc.jpeg",
   "May 10,National Chocolate Fish Day": "https://i.imgur.com/8lkoP6K.jpg",
+  "May 10,National Ice Cream Cake Day": "https://i.imgur.com/iuotzmc.jpeg",
   "May 13,International Hummus Day": "https://i.imgur.com/c9JSzQZ.jpg",
   "May 16,National BBQ Day": "https://i.imgur.com/HstFobt.jpg",
   "May 17,National Walnut Day": "https://i.imgur.com/fOII4wt.png",
   "May 18,National Marshmallow Day": "https://i.imgur.com/wWlqHfQ.jpg",
+  "May 21,International Tea Day": "https://i.imgur.com/XRnqxfe.jpg",
   "May 23,National Taffy Day": "https://i.imgur.com/dDo4Uiz.png",
   "May 24,National Escargot Day": "https://i.imgur.com/Er5CoVK.png",
   "May 25,National Wine Day": "https://i.imgur.com/kO20Acq.jpg",
@@ -2244,8 +2271,8 @@ var img_cache = JSON.parse(`
   "November 19,Carbonated Beverage with Caffeine Day": "https://i.imgur.com/Z6w2Dcb.jpg",
   "November 19,National Soup Day": "https://i.imgur.com/HxKMCvn.jpg",
   "November 2,National Deviled Egg Day": "https://i.imgur.com/JpKUEPW.jpg",
-  "November 2,World Mankousheh Day": "https://i.imgur.com/M14fvHR.jpeg",
   "November 2,National Pico de gallo Day": "https://i.imgur.com/OBAA43N.jpeg",
+  "November 2,World Mankousheh Day": "https://i.imgur.com/M14fvHR.jpeg",
   "November 20,National Peanut Butter Fudge Day": "https://i.imgur.com/CCLdU9R.jpg",
   "November 21,National Stuffing Day": "https://i.imgur.com/Lz62G1o.jpg",
   "November 23,National Cashew Day": "https://i.imgur.com/01rm8Uq.jpg",
@@ -2255,6 +2282,7 @@ var img_cache = JSON.parse(`
   "November 26,National Cake Day": "https://i.imgur.com/uoUWD6A.jpg",
   "November 26,National Milk Day": "https://i.imgur.com/yeZH6YW.png",
   "November 28,National French Toast Day": "https://i.imgur.com/m4V5UY3.jpg",
+  "November 29,Good Meat Day": "https://i.imgur.com/WrT7eG1.jpeg",
   "November 29,National Chocolates Day": "https://i.imgur.com/ohjlCoY.jpg",
   "November 29,National Lemon Cream Pie Day": "https://i.imgur.com/k5MYG1R.jpg",
   "November 29,Throw Out Your Leftovers Day": "https://i.imgur.com/yOABKI3.jpg",
@@ -2354,6 +2382,6 @@ var img_cache = JSON.parse(`
   "Third Sunday of July,National Ice Cream Day": "https://i.imgur.com/P2SZBCt.png",
   "Tuesday before Ash Wednesday,National Pancake Day (Nationale Pannenkoekdag)": "https://i.imgur.com/WuxHD2a.jpg",
   "Two days before Lent,Cream bun day (Bolludagur) [is]": "https://i.imgur.com/KEgwjP2.jpeg",
-  "Varies; 2017 date is February 8,Food Freedom Day": "https://i.imgur.com/9c0XzQU.jpeg"
+  "Varies; 2023 date is February 9,Food Freedom Day": "https://i.imgur.com/9c0XzQU.jpeg"
 }
 `);
