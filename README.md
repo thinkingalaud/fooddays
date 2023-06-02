@@ -27,6 +27,6 @@ New tab page for Chrome that shows the current food day in the US
 
 ## Deployment
 * update version number in manifest.json
-* make sure you the dependencies installed and in the right directories
+* make sure the dependencies are installed and in the right directories
 * create zip file: `zip fooddays.zip -r fooddays/*`
 * upload package to the [dev console](https://chrome.google.com/webstore/devconsole)
