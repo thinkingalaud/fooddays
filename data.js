@@ -352,6 +352,12 @@ var cache = JSON.parse(`
       "United States"
     ]
   ],
+  "December 20": [
+    [
+      "National Cortado Day",
+      "United States"
+    ]
+  ],
   "December 21": [
     [
       "National Hamburger Day",
@@ -458,6 +464,12 @@ var cache = JSON.parse(`
     [
       "National Frog Legs Day (celebration for Leap Day)",
       "United States"
+    ]
+  ],
+  "February 3": [
+    [
+      "National Carrot Cake Day",
+      "Brazil"
     ]
   ],
   "February 5": [
@@ -580,6 +592,12 @@ var cache = JSON.parse(`
     [
       "National Undhiyu Day",
       "India"
+    ]
+  ],
+  "January 19": [
+    [
+      "National Popcorn Day",
+      "United States"
     ]
   ],
   "January 2": [
@@ -1066,6 +1084,12 @@ var cache = JSON.parse(`
       "Australia"
     ]
   ],
+  "Last Thursday in September": [
+    [
+      "National F\u00e5rik\u00e5l Day",
+      "Norway"
+    ]
+  ],
   "Last Thursday of June": [
     [
       "National Bomb Pop Day",
@@ -1118,6 +1142,12 @@ var cache = JSON.parse(`
     [
       "National Bananacreme Pie Day",
       "United States"
+    ]
+  ],
+  "March 21": [
+    [
+      "P\u00e3o Franc\u00eas Day",
+      "Brazil"
     ]
   ],
   "March 22": [
@@ -1560,6 +1590,10 @@ var cache = JSON.parse(`
     [
       "World Porridge Day",
       "Global"
+    ],
+    [
+      "National Angel Food Cake Day",
+      "United States"
     ]
   ],
   "October 11": [
@@ -1698,6 +1732,10 @@ var cache = JSON.parse(`
     [
       "International Beer and Pizza Day",
       "United States"
+    ],
+    [
+      "World Mac'n'Cheese Week",
+      "Global"
     ]
   ],
   "Saturday before Labor Day": [
@@ -1873,6 +1911,10 @@ var cache = JSON.parse(`
     ],
     [
       "National Lobster Day",
+      "United States"
+    ],
+    [
+      "National Quesadilla Day",
       "United States"
     ]
   ],
@@ -2075,6 +2117,7 @@ var img_cache = JSON.parse(`
   "December 16,Chocolate Covered Day": "https://i.imgur.com/PxYXY81.jpg",
   "December 16,National Green Chili Day": "https://i.imgur.com/runtPKs.jpg",
   "December 2,National Fritters Day": "https://i.imgur.com/pRqm6Wk.jpg",
+  "December 20,National Cortado Day": "https://i.imgur.com/0x9OHTM.png",
   "December 21,National Hamburger Day": "https://i.imgur.com/UlxYFK2.jpg",
   "December 22,National Date Nut Bread Day": "https://i.imgur.com/337bk9T.jpg",
   "December 24,National Eggnog Day": "https://i.imgur.com/7uFcGNH.jpg",
@@ -2094,6 +2137,7 @@ var img_cache = JSON.parse(`
   "February 23,National Banana Bread Day": "https://i.imgur.com/iTGjO45.png",
   "February 27,National Khachapuri Day": "https://i.imgur.com/l1e3G5U.jpeg",
   "February 29,National Frog Legs Day (celebration for Leap Day)": "https://i.imgur.com/GWO0mHZ.png",
+  "February 3,National Carrot Cake Day": "https://i.imgur.com/7XGh5Ey.jpeg",
   "February 5,World Nutella Day": "https://i.imgur.com/fCl0cBh.jpg",
   "February 7,National Pork Rind Appreciation Day": "https://i.imgur.com/WlsxG2q.png",
   "February 8,Chocolate Cheesecake Day": "https://i.imgur.com/Y0s8fxR.jpeg",
@@ -2115,6 +2159,7 @@ var img_cache = JSON.parse(`
   "January 11,German Apples Day (Tag des Deutschen Apfels)": "https://i.imgur.com/CpkAzIq.jpg",
   "January 15,National Booch Day": "https://i.imgur.com/RHgar2X.jpeg",
   "January 16,National Undhiyu Day": "https://i.imgur.com/pSrJH6m.jpg",
+  "January 19,National Popcorn Day": "https://i.imgur.com/2EnwSee.jpeg",
   "January 2,National Creampuff Day": "https://i.imgur.com/9bogmfM.jpg",
   "January 23,National Pie Day": "https://i.imgur.com/ECVW73J.jpg",
   "January 24,National Peanut Butter Day": "https://i.imgur.com/ZCEbpq2.png",
@@ -2206,6 +2251,7 @@ var img_cache = JSON.parse(`
   "June 7,Chocolate Ice Cream Day": "https://i.imgur.com/Uzrnqab.png",
   "June 9,International Lemon Drizzle Cake Day": "https://i.imgur.com/pFMnuQp.jpg",
   "Last Sunday in November,International Laksa Day": "https://i.imgur.com/BNbY3M8.jpeg",
+  "Last Thursday in September,National F\u00e5rik\u00e5l Day": "https://i.imgur.com/VAxOVaD.jpeg",
   "Last Thursday of June,National Bomb Pop Day": "https://i.imgur.com/W4XVlmA.png",
   "March 1,Beer Day": "https://i.imgur.com/QueZLIZ.jpg",
   "March 1,National Peanut Butter Lover's Day": "https://i.imgur.com/oePK69H.png",
@@ -2216,6 +2262,7 @@ var img_cache = JSON.parse(`
   "March 14,National Steak Day": "https://i.imgur.com/RfgzAb9.jpg",
   "March 14,Pi Day": "https://i.imgur.com/k4Q9Iqt.jpg",
   "March 2,National Bananacreme Pie Day": "https://i.imgur.com/PTf4Mnz.png",
+  "March 21,P\u00e3o Franc\u00eas Day": "https://i.imgur.com/RYcEeB8.jpeg",
   "March 22,National Corndog Day": "https://i.imgur.com/bY3TUFE.jpg",
   "March 23,National Chips and Dip Day": "https://i.imgur.com/VylswLl.jpg",
   "March 25,National Waffle Day (V\u00e5ffeldagen)": "https://i.imgur.com/Ek9Uhjq.jpg",
@@ -2298,6 +2345,7 @@ var img_cache = JSON.parse(`
   "November 9,National Scrapple Day": "https://i.imgur.com/mFbJAvJ.jpg",
   "October 1,International Coffee Day": "https://i.imgur.com/hqzqXk3.jpg",
   "October 1,World Vegetarian Day": "https://i.imgur.com/kFIxzVN.jpg",
+  "October 10,National Angel Food Cake Day": "https://i.imgur.com/GhsgqWP.jpeg",
   "October 10,World Porridge Day": "https://i.imgur.com/4w9f2lT.jpg",
   "October 11,National Sausage Pizza Day": "https://i.imgur.com/uYaF0W9.jpg",
   "October 14,National Dessert Day": "https://i.imgur.com/sBez8n6.jpg",
@@ -2325,6 +2373,7 @@ var img_cache = JSON.parse(`
   "October 8,National Fluffernutter Day": "https://i.imgur.com/SmPxoTv.jpg",
   "October 8,National Pierogi Day": "https://i.imgur.com/StgEvn5.jpeg",
   "October 9,International Beer and Pizza Day": "https://i.imgur.com/4MM8M9e.jpeg",
+  "October 9,World Mac'n'Cheese Week": "https://i.imgur.com/2yKBYIc.jpeg",
   "Saturday before Labor Day,International Bacon Day": "https://i.imgur.com/9nzMpDh.png",
   "Saturday of Civic Holiday weekend (August),Food Day Canada": "https://i.imgur.com/FlIuDFx.jpg",
   "Second Friday of October,World Egg Day": "https://i.imgur.com/cSGWxlt.jpg",
@@ -2358,6 +2407,7 @@ var img_cache = JSON.parse(`
   "September 22,International Mixed Berries Muffin Day": "https://i.imgur.com/fQ9ovG4.jpg",
   "September 25,German Butterbrot Day (Tag des Deutschen Butterbrots)": "https://i.imgur.com/8nhhj35.jpg",
   "September 25,National Lobster Day": "https://i.imgur.com/mfaOzEd.jpg",
+  "September 25,National Quesadilla Day": "https://i.imgur.com/kdRDm3Z.jpeg",
   "September 26,Johnny Appleseed Day": "https://i.imgur.com/Eto0TEg.jpg",
   "September 26,National Better Breakfast Day": "https://i.imgur.com/fOSh2fE.jpg",
   "September 26,National Dumpling Day": "https://i.imgur.com/kIOwqkU.png",

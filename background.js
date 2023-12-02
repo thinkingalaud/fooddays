@@ -34,6 +34,7 @@ var COUNTRIES = {
   "Luxembourg": "images/flags/Flag_of_Luxembourg.png",
   "Netherlands": "images/flags/Flag_of_Netherlands.png",
   "New Zealand": "images/flags/Flag_of_New_Zealand.png",
+  "Norway": "images/flags/Flag_of_Norway.png",
   "Sweden": "images/flags/Flag_of_Sweden.png",
   "Turkmenistan": "images/flags/Flag_of_Turkmenistan.png",
   "United Kingdom": "images/flags/Flag_of_United_Kingdom.png",
